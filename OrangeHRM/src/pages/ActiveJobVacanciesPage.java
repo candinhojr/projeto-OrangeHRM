@@ -1,5 +1,7 @@
 package pages;
 
+import java.io.File;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -48,9 +50,12 @@ public class ActiveJobVacanciesPage extends BasePage {
 		writeText(By.id(contactNoInputId), contactNo);
 	}
 	
-	public void addResume() {
-		// TODO: see a manner of add document
-	}
+	public void addResume(String pathOfResume) {
+		click(By.id(resumeInputFileId));
+		File file = new File(pathOfResume);
+		findElement(By.id(resumeInputFileId)).sendKeys(file.getAbsolutePath());
+		//String path = "/home/ArquivoTestes/arquivo.pdf";
+	}	
 	
 	public void fillKeyWords(String keyWords) {
 		// TODO: see a manner of add one or more than one word
