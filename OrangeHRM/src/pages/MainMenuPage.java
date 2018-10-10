@@ -28,8 +28,7 @@ public class MainMenuPage extends BasePage {
 			String menuAdmin_UserManagement_ViewUsersId = "menu_admin_viewSystemUsers";
 	
 	// Logout
-	String menuWelconeId = "welcome";
-		String aboutId = "aboutDisplayLink";
+	String menuWelcomeXpath = "//*[@id=\"welcome\"]";
 		String logoutXpath = "//*[@id='welcome-menu']/ul/li[2]/a";
 	
 		
@@ -50,4 +49,8 @@ public class MainMenuPage extends BasePage {
 		click(By.id(menuAdmin_UserManagement_ViewUsersId));
 	}
 	
+	public void logOut() {
+		click(By.xpath(menuWelcomeXpath));
+		click(By.xpath(logoutXpath));
+	}
 }
