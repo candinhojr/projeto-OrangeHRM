@@ -2,6 +2,7 @@ package pages;
 
 import java.io.File;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -20,6 +21,8 @@ public class ActiveJobVacanciesPage extends BasePage {
 	String vacancyTitleXpath = "//*[@id=\"jobPage\"]/div/div/div[2]/div[3]/div";
 	String vacancyJobDescriptionXpath = "//*[@id=\"jobPage\"]/div/div/div[2]/div[3]/pre[1]";
 	String applyButtonXpath = "//*[@id=\"jobPage\"]/div/div/div[2]/div[3]/p/input";
+	
+	String firstNameRequiredXpath = "//*[@id=\"frmAddCandidate\"]/fieldset/ol[1]/li[2]/ol/li[1]/span";
 	// TODO: To finish
 	
 	// Pagina de uma vaga em especifico
@@ -36,6 +39,10 @@ public class ActiveJobVacanciesPage extends BasePage {
 	String backToListId = "backLink";
 
 	// Métodos do Page
+	public void goToJobVacanciePage() {
+		click(By.xpath(applyButtonXpath));
+	}
+	
 	public void fillFullName(String firstName, String middleName, String lastName) {
         writeText(By.id(firstNameInputId), firstName);
         writeText(By.id(middleNameInputId), middleName);
@@ -54,11 +61,13 @@ public class ActiveJobVacanciesPage extends BasePage {
 		click(By.id(resumeInputFileId));
 		File file = new File(pathOfResume);
 		findElement(By.id(resumeInputFileId)).sendKeys(file.getAbsolutePath());
-		//String path = "/home/ArquivoTestes/arquivo.pdf";
 	}	
 	
 	public void fillKeyWords(String keyWords) {
-		// TODO: see a manner of add one or more than one word
+		String[] separateText = keyWords.split("\\s|,\\s|;\\s");
+		for (String keyWord : separateText) {
+			writeText(By.id(keyWordsInputId), keyWord + " ");
+		}
 	}
 	
 	public void fillNotes(String notes) {
@@ -71,6 +80,18 @@ public class ActiveJobVacanciesPage extends BasePage {
 	
 	public void backToListOfJobVacancies() {
 		click(By.id(backToListId));
+	}
+	
+	public void firstNameRequired() {
+		String color = findElement(By.id(firstNameInputId)).getCssValue("border-color").trim();
+		System.out.println("RGB Color of header: " + color);
+		String color_hex[];  
+		color_hex = color.replace("rgb(", "").replace(")", "").split(",|,\\s");
+		String actual_hex = String.format("#%02x%02x%02x", Integer.parseInt(color_hex[0].trim()), Integer.parseInt(color_hex[1].trim()), Integer.parseInt(color_hex[2].trim()));  
+		System.out.println("HEX Color of header: " + actual_hex);
+		Assert.assertEquals("actual_hex should equal to: ", "#aa4935", actual_hex);
+		Assert.assertEquals("Required", findElement(By.xpath(firstNameRequiredXpath)).getText()); //findElement(By.xpath(firstNameRequiredXpath)).getText().contains("Required");
+	
 	}
 	
 }
