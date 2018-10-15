@@ -18,7 +18,10 @@ public class VacanciesTest extends BaseTest {
 		// Métodos do page
 		homePage.goToOrangePageLogin();
 		loginPage.loginToOrangeHRM("Admin", "admin123");
-		mainMenuPage.goToViewJobVacancy();
+//		mainMenuPage.goToViewJobVacancy();
+//		mainMenuPage.goToViewCandidates();
+//		mainMenuPage.goToViewSystemUsers();
+		mainMenuPage.logOut();
 	}
 	
 	

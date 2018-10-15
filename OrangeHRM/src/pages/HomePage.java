@@ -12,12 +12,17 @@ public class HomePage extends BasePage {
 	
 	// Variáveis do Page
 	String baseURL = "https://opensource-demo.orangehrmlive.com/";
+	String activeJobVacanciesURL = "https://opensource-demo.orangehrmlive.com/index.php/recruitmentApply/jobs";
 	
 	// Métodos do Page
 	
 	// Vai para a página de login
-    public void goToOrangePageLogin (){
+    public void goToOrangePageLogin () {
         driver.get(baseURL);
         //driver.navigate().to(baseURL)
 	}
+    
+    public void goToActiveJobVacancies() {
+    	driver.get(activeJobVacanciesURL);
+    }
 }
