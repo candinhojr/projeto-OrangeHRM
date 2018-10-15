@@ -3,21 +3,15 @@ package tests;
 import static org.junit.Assert.*;
 
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import pages.ActiveJobVacanciesPage;
 import pages.HomePage;
-import pages.ListUsersPage;
-import pages.LoginPage;
-import pages.MainMenuPage;
 
 public class ApplyForVacancieTest extends BaseTest {
 
 	private HomePage homePage;
-	private LoginPage loginPage;
-	private MainMenuPage mainMenuPage;
 	private ActiveJobVacanciesPage jobVacanciesPage;
 	
 	@Before
@@ -25,8 +19,6 @@ public class ApplyForVacancieTest extends BaseTest {
 		super.setUp();
 
 	    this.homePage = new HomePage(driver, wait);
-	    this.loginPage = new LoginPage(driver, wait);
-	    this.mainMenuPage = new MainMenuPage(driver, wait);
 	    this.jobVacanciesPage = new ActiveJobVacanciesPage(driver, wait);
 	    
 //	    this.homePage.goToOrangePageLogin();
