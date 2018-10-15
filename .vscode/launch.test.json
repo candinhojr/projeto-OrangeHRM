@@ -1,0 +1,30 @@
+{
+    "run": {
+        "default": "",
+        "items": [
+            {
+                "name": "OrangeHRM",
+                "projectName": "OrangeHRM",
+                "workingDirectory": "c:\\Pedro\\Programacao\\Faculdade\\projeto-OrangeHRM\\OrangeHRM",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    },
+    "debug": {
+        "default": "",
+        "items": [
+            {
+                "name": "OrangeHRM",
+                "projectName": "OrangeHRM",
+                "workingDirectory": "c:\\Pedro\\Programacao\\Faculdade\\projeto-OrangeHRM\\OrangeHRM",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    }
+}
