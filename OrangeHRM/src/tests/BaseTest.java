@@ -20,7 +20,7 @@ public class BaseTest {
         driver = new ChromeDriver();
  
         // Crio o wait. Todos as classes de teste e page usam esse wait.
-        wait = new WebDriverWait(driver,15);
+        wait = new WebDriverWait(driver, 300);
  
         // Maximiza a janela
         driver.manage().window().maximize();

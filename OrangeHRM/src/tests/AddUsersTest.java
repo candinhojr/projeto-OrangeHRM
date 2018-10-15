@@ -42,12 +42,33 @@ public class AddUsersTest extends BaseTest {
   }
 
   @Test
-  public void invalidTest_EmptyEmployeeName() {
-    this.addUserPage.fillEmployeeName("");
+  public void invalidTest_InvalidEmployeeName() {
+    this.addUserPage.fillEmployeeName("adwad");
 
     this.addUserPage.clickSave();
 
-    assertTrue(this.addUserPage.verifyEmployeeRequired());
+    assertTrue(this.addUserPage.verifyEmployeeInvalid());
+  }
+
+  @Test
+  public void invalidTest_InvalidUsername() {
+    this.addUserPage.fillUsername("awd");
+
+    this.addUserPage.clickSave();
+
+    assertTrue(this.addUserPage.verifyUsernameInvalid());
+  }
+
+  @Test
+  public void successTest_addUser() {
+    this.addUserPage.fillEmployeeName("Teste 123");
+    this.addUserPage.fillUsername("user_test_123");
+    this.addUserPage.fillPassword("password_123");
+    this.addUserPage.fillConfirmPassword("password_123");
+    this.addUserPage.selectStatus("Enabled");
+    this.addUserPage.selectUserRole("ESS");
+
+    this.addUserPage.clickSave();
   }
   
 

@@ -6,14 +6,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AddUserPage extends BasePage {
 
-  private String userRoleComboBoxId = "systemUser_userType";
+  private String userRoleDropdown = "systemUser_userType";
   private String employeeInputId = "systemUser_employeeName_empName";
   private String usernameInputId = "systemUser_userName";
-  private String statusComboBoxId = "systemUser_status";
+  private String statusDropdownId = "systemUser_status";
   private String passwordInputId = "systemUser_password";
   private String confirmPasswordInputId = "systemUser_confirmPassword";
   private String saveButtonId = "btnSave";
-  private String employeeNameMessage = "";
+
+  private String employeeNameMessage = "//form[@id='frmSystemUser']/fieldset/ol/li[2]/span";
+  private String usernameMessage = "//form[@id='frmSystemUser']/fieldset/ol/li[3]/span";
 
   public AddUserPage(WebDriver driver, WebDriverWait wait) {
     super(driver, wait);
@@ -36,18 +38,22 @@ public class AddUserPage extends BasePage {
   }
 
   public void selectUserRole(String userRole) {
-    // TODO: see a manner to switch between values on the combobox
+    selectElement(By.id(this.userRoleDropdown)).selectByVisibleText(userRole);
   }
-  
+
   public void selectStatus(String status) {
-    // TODO: see a manner to switch between values on the combobox
+    selectElement(By.id(this.statusDropdownId)).selectByVisibleText(status);
   }
 
   public void clickSave() {
     click(By.id(this.saveButtonId));
   }
 
-  public boolean verifyEmployeeRequired() {
-    return readText(By.id(this.employeeNameMessage)).equalsIgnoreCase("required");
+  public boolean verifyEmployeeInvalid() {
+    return readText(By.xpath(this.employeeNameMessage)).equalsIgnoreCase("invalid");
+  }
+
+  public boolean verifyUsernameInvalid() {
+    return readText(By.xpath(this.usernameMessage)).equalsIgnoreCase("should have at least 5 characters");
   }
 }

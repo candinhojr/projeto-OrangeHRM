@@ -2,6 +2,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
@@ -32,6 +33,11 @@ public class BasePage {
     // Método findElement
     public WebElement findElement(By elementLocation) {
     	return driver.findElement(elementLocation);
+    }
+
+    // Método selectElement pra seleção de dropdowns
+    public Select selectElement(By elementLocation) {
+        return new Select(driver.findElement(elementLocation));
     }
 
 }
