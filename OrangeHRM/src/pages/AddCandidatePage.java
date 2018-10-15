@@ -15,9 +15,7 @@ public class AddCandidatePage extends BasePage {
         super(driver, wait);
     }
 	
-	// TODO Elementos web
-	
-	// TODO Metodos de acesso
+	// Metodos de acesso
 	public void fillFirstName(String name) {
 		writeText(By.name("addCandidate[firstName]"), name);
 	}

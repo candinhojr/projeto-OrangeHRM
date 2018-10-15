@@ -7,6 +7,7 @@ import org.junit.Test;
 import pages.ActiveJobVacanciesPage;
 import pages.HomePage;
 
+// TODO
 public class ApplyForVacancieTest extends BaseTest {
 
 	@Test
