@@ -7,7 +7,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-// TODO remove
 public class ActiveJobVacanciesPage extends BasePage {
 
 	public ActiveJobVacanciesPage(WebDriver driver, WebDriverWait wait) {
@@ -27,9 +26,7 @@ public class ActiveJobVacanciesPage extends BasePage {
 	String lastNameRequiredXpath = "//*[@id=\"addCandidate_lastName\"]";
 	String emailRequiredXpath = "//*[@id=\"addCandidate_email\"]";
 	String resumeRequiredXpath = "//*[@id=\"addCandidate_resume\"]";
-	
-	// TODO: To finish
-	
+
 	// Pagina de uma vaga em especifico
 	String vacancieTitleId = "addCandidateHeading";
 	String firstNameInputId = "addCandidate_firstName";
