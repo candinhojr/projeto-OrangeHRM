@@ -15,7 +15,7 @@ public class VacanciesTest extends BaseTest {
 		LoginPage loginPage = new LoginPage(driver, wait);
 		MainMenuPage mainMenuPage = new MainMenuPage(driver, wait);
 		
-		// Métodos do page
+		// TODO Métodos do page
 		homePage.goToOrangePageLogin();
 		loginPage.loginToOrangeHRM("Admin", "admin123");
 //		mainMenuPage.goToViewJobVacancy();

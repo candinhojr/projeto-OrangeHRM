@@ -13,6 +13,7 @@ import pages.ListUsersPage;
 import pages.LoginPage;
 import pages.MainMenuPage;
 
+// TODO
 public class ApplyForVacancieTest extends BaseTest {
 
 	private HomePage homePage;
