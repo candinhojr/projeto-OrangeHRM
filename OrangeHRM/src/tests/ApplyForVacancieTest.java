@@ -16,6 +16,7 @@ public class ApplyForVacancieTest extends BaseTest {
 		ActiveJobVacanciesPage jobVacanciesPage = new ActiveJobVacanciesPage(driver, wait);
 
 		// Métodos do page
+		homePage.goToOrangePageLogin();
 		homePage.goToActiveJobVacancies();
 		jobVacanciesPage.goToJobVacanciePage();
 		jobVacanciesPage.fillFullName("", "Luiz Dalla Brida", "Junior");
