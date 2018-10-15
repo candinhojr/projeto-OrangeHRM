@@ -10,6 +10,7 @@ import pages.ListUsersPage;
 import pages.LoginPage;
 import pages.MainMenuPage;
 
+// TODO
 public class ApplyForVacancieTest extends BaseTest {
 
 	private HomePage homePage;
@@ -41,15 +42,21 @@ public class ApplyForVacancieTest extends BaseTest {
 	  
 	@Test
 	public void goToApplyForVacancie() throws InterruptedException {
-		this.homePage.goToActiveJobVacancies();
-		this.jobVacanciesPage.goToJobVacanciePage();
-		this.jobVacanciesPage.fillFullName("", "Luiz Dalla Brida", "Junior");
-		this.jobVacanciesPage.fillEmail("candinholuiz@gmail.com");
-		this.jobVacanciesPage.fillContactNo("(48) 9 9657-9797");
-		this.jobVacanciesPage.addResume("/home/candinho/Downloads/instrucoes.pdf");
-		this.jobVacanciesPage.fillKeyWords("palavras de, teste");
-		this.jobVacanciesPage.fillNotes("Vai dar boa negão");
-		this.jobVacanciesPage.clickSubmit();
+		// Instanciação dos pages
+		HomePage homePage = new HomePage(driver,wait);
+		ActiveJobVacanciesPage jobVacanciesPage = new ActiveJobVacanciesPage(driver, wait);
+
+		// Métodos do page
+		homePage.goToOrangePageLogin();
+		homePage.goToActiveJobVacancies();
+		jobVacanciesPage.goToJobVacanciePage();
+		jobVacanciesPage.fillFullName("", "Luiz Dalla Brida", "Junior");
+		jobVacanciesPage.fillEmail("candinholuiz@gmail.com");
+		jobVacanciesPage.fillContactNo("(48) 9 9657-9797");
+		jobVacanciesPage.addResume("/home/candinho/Downloads/instrucoes.pdf");
+		jobVacanciesPage.fillKeyWords("palavras de, teste");
+		jobVacanciesPage.fillNotes("Vai dar boa negão");
+		jobVacanciesPage.clickSubmit();
 		
 		this.jobVacanciesPage.firstNameRequired();
 	}

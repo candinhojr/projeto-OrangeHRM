@@ -9,7 +9,7 @@ public class BaseTest {
 	public WebDriver driver;
 	public WebDriverWait wait;
 	// Definição do local onde o chromedriver se encontra
-	// public String driverPath = "dependences/chromedriver";
+	//	public String driverPath = "dependences/chromedriver";
 	public String driverPath = "dependences/chromedriver.exe";
 	
 	//Verificar o uso do BeforeClass
