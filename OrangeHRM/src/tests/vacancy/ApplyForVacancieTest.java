@@ -1,37 +1,34 @@
-package tests;
+package tests.vacancy;
 
 import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.support.PageFactory;
 
-import pages.ActiveJobVacanciesPage;
-import pages.HomePage;
+import pages.vacancy.*;
+import tests.BaseTest;
+import pages.home.*;
 
 public class ApplyForVacancieTest extends BaseTest {
 
-	private HomePage homePage;
 	private ActiveJobVacanciesPage jobVacanciesPage;
-	
+
 	@Before
 	public void setUp() throws Exception {
 		super.setUp();
 
-	    this.homePage = new HomePage(driver, wait);
-	    this.jobVacanciesPage = new ActiveJobVacanciesPage(driver, wait);
-	    
-//	    this.homePage.goToOrangePageLogin();
-//	    this.loginPage.loginToOrangeHRM("Admin", "admin123");
-	    
-	    this.homePage.goToActiveJobVacancies();
+		this.jobVacanciesPage = PageFactory.initElements(driver, ActiveJobVacanciesPage.class);
+
+		this.home.goToLoginPage().loginToOrangeHRM("Admin", "admin123").goToViewJobVacancy();
 	}
 
 	@After
 	public void after() throws Exception {
-		driver.quit();
+		// driver.quit();
 	}
-	  
+
 	@Test
 	public void validTest_ApplyForVacancie() throws InterruptedException {
 		this.jobVacanciesPage.goToJobVacanciePage();
@@ -42,19 +39,18 @@ public class ApplyForVacancieTest extends BaseTest {
 		this.jobVacanciesPage.fillKeyWords("palavras de, teste");
 		this.jobVacanciesPage.fillNotes("Vai dar boa negão");
 		this.jobVacanciesPage.clickSubmit();
-		
-//		this.jobVacanciesPage.requiredFields();
+
+		// this.jobVacanciesPage.requiredFields();
 	}
-	
+
 	@Test
 	public void invalidTest_EmplyRequiredFields() throws InterruptedException {
 		this.jobVacanciesPage.goToJobVacanciePage();
 		this.jobVacanciesPage.clickSubmit();
-		
+
 		this.jobVacanciesPage.requiredFields();
-		
 	}
-	
+
 	@Test
 	public void invalidTest_InvalidEmail() throws InterruptedException {
 		this.jobVacanciesPage.goToJobVacanciePage();
@@ -62,10 +58,10 @@ public class ApplyForVacancieTest extends BaseTest {
 		this.jobVacanciesPage.fillEmail("teste");
 		this.jobVacanciesPage.addResume("dependences/files/pdf_valido.pdf");
 		this.jobVacanciesPage.clickSubmit();
-		
+
 		this.jobVacanciesPage.emailRequired();
 	}
-	
+
 	@Test
 	public void invalidTest_NoActiveJobVacancies() throws InterruptedException {
 		assertTrue(this.jobVacanciesPage.checkForVacancies());

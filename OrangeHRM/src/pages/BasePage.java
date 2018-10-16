@@ -1,43 +1,61 @@
 package pages;
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import pages.login.LoginPage;
+import utils.Driver;
+
 public class BasePage {
-	public WebDriver driver;
+    public WebDriver driver;
     public WebDriverWait wait;
- 
-    //Construtor
-    public BasePage (WebDriver driver, WebDriverWait wait){
+
+    private final String BASE_PAGE_URL = "https://opensource-demo.orangehrmlive.com/";
+
+    public BasePage() {
+        this.driver = Driver.getInstance().getWebDriver();
+        this.wait = Driver.getInstance().getWebDriverWait();
+    }
+
+    // Construtor
+    public BasePage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
     }
- 
+
     // Método click
-    public void click (By elementLocation) {
-        driver.findElement(elementLocation).click();
+    public void click(WebElement elementLocation) {
+        elementLocation.click();
     }
- 
+
     // Método writeText
-    public void writeText (By elementLocation, String text) {
-        driver.findElement(elementLocation).sendKeys(text);
+    public void writeText(WebElement elementLocation, String text) {
+        // driver.findElement(elementLocation).sendKeys(text);
+        elementLocation.sendKeys(text);
     }
- 
+
     // Método readText
-    public String readText (By elementLocation) {
-        return driver.findElement(elementLocation).getText();
+    public String readText(WebElement elementLocation) {
+        return elementLocation.getText();
     }
-    
+
     // Método findElement
-    public WebElement findElement(By elementLocation) {
-    	return driver.findElement(elementLocation);
+    public WebElement findElement(WebElement elementLocation) {
+        return elementLocation;
     }
 
     // Método selectElement pra seleção de dropdowns
-    public Select selectElement(By elementLocation) {
-        return new Select(driver.findElement(elementLocation));
+    public Select selectElement(WebElement elementLocation) {
+        return new Select(elementLocation);
+    }
+
+    public LoginPage goToLoginPage() {
+        driver.get(this.BASE_PAGE_URL);
+
+        return PageFactory.initElements(driver, LoginPage.class);
     }
 
 }
