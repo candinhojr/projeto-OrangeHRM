@@ -19,7 +19,7 @@ public class Driver {
 
     this.driver = new ChromeDriver();
 
-    this.wait = new WebDriverWait(driver, 300);
+    this.wait = new WebDriverWait(driver, 3000, 1000);
 
     this.driver.manage().window().maximize();
   }

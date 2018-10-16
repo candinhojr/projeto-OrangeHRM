@@ -10,8 +10,6 @@ import pages.vacancy.ActiveJobVacanciesPage;
 
 public class HomePage extends BasePage {
 
-	// Variáveis do Page
-	String baseURL = "https://opensource-demo.orangehrmlive.com/";
 	String activeJobVacanciesURL = "https://opensource-demo.orangehrmlive.com/index.php/recruitmentApply/jobs";
 
 	public HomePage() {
@@ -21,15 +19,6 @@ public class HomePage extends BasePage {
 	// Construtor
 	public HomePage(WebDriver driver, WebDriverWait wait) {
 		super(driver, wait);
-	}
-
-	// Métodos do Page
-
-	// Vai para a página de login
-	public LoginPage goToOrangePageLogin() {
-		driver.get(baseURL);
-
-		return PageFactory.initElements(driver, LoginPage.class);
 	}
 
 	public ActiveJobVacanciesPage goToActiveJobVacancies() {

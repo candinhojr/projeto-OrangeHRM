@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import pages.BasePage;
 import pages.candidate.ActiveCandidatesPage;
+import pages.home.HomePage;
 import pages.user.ListUsersPage;
 import pages.vacancy.JobVacanciesListPage;
 
@@ -42,9 +43,9 @@ public class MainMenuPage extends BasePage {
 	WebElement menuAdmin_UserManagement_ViewUsersId;
 
 	// Logout
-	@FindBy(xpath = "//*[@id=\"welcome\"]")
+	@FindBy(id = "welcome")
 	WebElement menuWelcomeXpath;
-	@FindBy(xpath = "//*[@id='welcome-menu']/ul/li[2]/a")
+	@FindBy(linkText = "Logout")
 	WebElement logoutXpath;
 
 	public MainMenuPage() {
@@ -79,8 +80,10 @@ public class MainMenuPage extends BasePage {
 		return PageFactory.initElements(driver, ListUsersPage.class);
 	}
 
-	public void logOut() {
+	public HomePage logOut() {
 		click(menuWelcomeXpath);
 		click(logoutXpath);
+
+		return PageFactory.initElements(driver, HomePage.class);
 	}
 }

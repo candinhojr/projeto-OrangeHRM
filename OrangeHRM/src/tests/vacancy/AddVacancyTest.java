@@ -1,5 +1,6 @@
 package tests.vacancy;
 
+import org.junit.After;
 import org.junit.Test;
 import org.openqa.selenium.support.PageFactory;
 
@@ -13,6 +14,14 @@ import pages.mainMenu.*;
 public class AddVacancyTest extends BaseTest {
 
 	private AddVacancyPage addVacancyPage;
+
+	@After
+	@Override
+	public void tearDown() throws Exception {
+		super.tearDown();
+
+		this.home.logOut();
+	}
 	
 	@Test
 	public void CreateVacancyTest() throws InterruptedException {

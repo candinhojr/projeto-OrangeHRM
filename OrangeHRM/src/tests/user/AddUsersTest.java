@@ -3,10 +3,12 @@ package tests.user;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.openqa.selenium.support.PageFactory;
 
 import pages.user.AddUserPage;
 import tests.BaseTest;
+import utils.Success;
 
 public class AddUsersTest extends BaseTest {
 
@@ -24,6 +26,7 @@ public class AddUsersTest extends BaseTest {
   @After
   public void after() throws Exception {
     // driver.quit();
+    this.home.logOut();
   }
 
   @Test
@@ -44,6 +47,7 @@ public class AddUsersTest extends BaseTest {
     // assertTrue(this.addUserPage.get());
   }
 
+  @Category(Success.class)
   @Test
   public void successTest_addUser() {
     this.addUserPage.fillEmployeeName("Teste 123");

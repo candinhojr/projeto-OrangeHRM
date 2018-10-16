@@ -5,11 +5,11 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.PageFactory;
 
 import pages.vacancy.*;
 import tests.BaseTest;
-import pages.home.*;
 
 public class ApplyForVacancieTest extends BaseTest {
 
@@ -21,12 +21,12 @@ public class ApplyForVacancieTest extends BaseTest {
 
 		this.jobVacanciesPage = PageFactory.initElements(driver, ActiveJobVacanciesPage.class);
 
-		this.home.goToLoginPage().loginToOrangeHRM("Admin", "admin123").goToViewJobVacancy();
+		// this.home.goToLoginPage().loginToOrangeHRM("Admin", "admin123").goToViewJobVacancy();
+		this.home.goToActiveJobVacancies();
 	}
 
 	@After
 	public void after() throws Exception {
-		// driver.quit();
 	}
 
 	@Test
@@ -63,7 +63,7 @@ public class ApplyForVacancieTest extends BaseTest {
 	}
 
 	@Test
-	public void invalidTest_NoActiveJobVacancies() throws InterruptedException {
+	public void invalidTest_NoActiveJobVacancies() throws NoSuchElementException {
 		assertTrue(this.jobVacanciesPage.checkForVacancies());
 	}
 

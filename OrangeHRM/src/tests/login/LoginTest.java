@@ -13,17 +13,17 @@ import tests.BaseTest;
 
 public class LoginTest extends BaseTest {
 
-	private HomePage homePage;
+	private HomePage home;
 	private LoginPage loginPage;
 
 	@Before
 	public void setUp() throws Exception {
 		super.setUp();
 
-		this.homePage = PageFactory.initElements(driver, HomePage.class);
+		this.home = PageFactory.initElements(driver, HomePage.class);
 		this.loginPage = PageFactory.initElements(driver, LoginPage.class);
 
-		this.homePage.goToOrangePageLogin();
+		this.home.goToLoginPage();
 	}
 
 	@After
@@ -69,6 +69,8 @@ public class LoginTest extends BaseTest {
 		// Asserts
 		Thread.sleep(500);
 		assertTrue(loginPage.loginWithSucess());
+
+		this.home.logOut();
 	}
 
 }
