@@ -12,6 +12,10 @@ import pages.BasePage;
 
 public class ActiveJobVacanciesPage extends BasePage {
 
+	public ActiveJobVacanciesPage() {
+		super();
+	}
+
 	public ActiveJobVacanciesPage(WebDriver driver, WebDriverWait wait) {
 		super(driver, wait);
 	}

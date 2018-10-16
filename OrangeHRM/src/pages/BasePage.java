@@ -1,13 +1,21 @@
 package pages;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import utils.Driver;
+
 public class BasePage {
 	public WebDriver driver;
     public WebDriverWait wait;
  
+    public BasePage() {
+        this.driver = Driver.getInstance().getWebDriver();
+        this.wait = Driver.getInstance().getWebDriverWait();
+    }
+
     //Construtor
     public BasePage (WebDriver driver, WebDriverWait wait){
         this.driver = driver;

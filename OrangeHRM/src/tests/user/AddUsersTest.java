@@ -18,7 +18,7 @@ public class AddUsersTest extends BaseTest {
   public void setUp() throws Exception {
     super.setUp();
 
-    this.addUserPage = PageFactory.initElements(driver, AddUserPage.class);
+    this.addUserPage = new AddUserPage(driver, wait);
 
     this.addUserPage.goToAddUserPage();
     
@@ -59,6 +59,5 @@ public class AddUsersTest extends BaseTest {
 
     this.addUserPage.clickSave();
   }
-  
 
 }

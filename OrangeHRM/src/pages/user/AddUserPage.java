@@ -35,6 +35,10 @@ public class AddUserPage extends BasePage {
   @FindBy(xpath = "//form[@id='frmSystemUser']/fieldset/ol/li[3]/span")
   private WebElement usernameMessage;
 
+  public AddUserPage() {
+    super();
+  }
+
   public AddUserPage(WebDriver driver, WebDriverWait wait) {
     super(driver, wait);
   }

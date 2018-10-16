@@ -12,11 +12,6 @@ import pages.user.ListUsersPage;
 
 public class MainMenuPage extends BasePage {
 
-	// Construtor
-	public MainMenuPage(WebDriver driver, WebDriverWait wait) {
-		super(driver, wait);
-	}
-
 	// Elementos Web
 
 	// Menu e sub menu
@@ -50,6 +45,15 @@ public class MainMenuPage extends BasePage {
 	WebElement menuWelcomeXpath;
 	@FindBy(xpath = "//*[@id='welcome-menu']/ul/li[2]/a")
 	WebElement logoutXpath;
+
+	public MainMenuPage() {
+		super();
+	}
+
+	// Construtor
+	public MainMenuPage(WebDriver driver, WebDriverWait wait) {
+		super(driver, wait);
+	}
 
 	// Métodos do Page
 	public void goToViewJobVacancy() {

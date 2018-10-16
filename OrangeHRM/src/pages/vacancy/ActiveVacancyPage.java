@@ -12,6 +12,10 @@ import pages.BasePage;
 
 public class ActiveVacancyPage extends BasePage {
 
+	public ActiveVacancyPage() {
+		super();
+	}
+
 	public ActiveVacancyPage(WebDriver driver, WebDriverWait wait) {
 		super(driver, wait);
 	}

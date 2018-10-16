@@ -28,6 +28,10 @@ public class AddCandidatePage extends BasePage {
 	@FindBy(name = "addCandidate[vacancy]")
 	private WebElement vacancy;
 
+	public AddCandidatePage() {
+		super();
+	}
+
 	// Construtor
 	public AddCandidatePage(WebDriver driver, WebDriverWait wait) {
 		super(driver, wait);

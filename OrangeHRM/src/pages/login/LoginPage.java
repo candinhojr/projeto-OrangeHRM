@@ -1,7 +1,6 @@
 package pages.login;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,6 +11,10 @@ import pages.BasePage;
 import pages.mainMenu.MainMenuPage;
 
 public class LoginPage extends BasePage {
+
+	public LoginPage() {
+		super();
+	}
 
 	// Construtor
 	public LoginPage(WebDriver driver, WebDriverWait wait) {

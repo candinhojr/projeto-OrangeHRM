@@ -12,6 +12,10 @@ public class ListUsersPage extends BasePage {
   @FindBy(id = "btnAdd")
   private WebElement addUserBtnId;
 
+  public ListUsersPage() {
+    super();
+  }
+
   public ListUsersPage(WebDriver driver, WebDriverWait wait) {
     super(driver, wait);
   }

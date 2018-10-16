@@ -26,6 +26,10 @@ public class AddVacancyPage extends BasePage {
 	@FindBy(xpath = "//*[@id=\"btnSave\"]")
 	private WebElement btnSave;
 
+	public AddVacancyPage() {
+		super();
+	}
+
 	// Construtor
 	public AddVacancyPage(WebDriver driver, WebDriverWait wait) {
 		super(driver, wait);

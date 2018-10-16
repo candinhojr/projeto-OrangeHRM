@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.support.PageFactory;
 
 import pages.home.*;
 import pages.login.*;
@@ -19,8 +20,8 @@ public class LoginTest extends BaseTest {
 	public void setUp() throws Exception {
 		super.setUp();
 
-		this.homePage = new HomePage(driver, wait);
-		this.loginPage = new LoginPage(driver, wait);
+		this.homePage = PageFactory.initElements(driver, HomePage.class);
+		this.loginPage = PageFactory.initElements(driver, LoginPage.class);
 
 		this.homePage.goToOrangePageLogin();
 	}

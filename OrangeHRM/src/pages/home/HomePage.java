@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.BasePage;
 import pages.login.LoginPage;
 import pages.vacancy.ActiveJobVacanciesPage;
+import utils.Driver;
 
 public class HomePage extends BasePage {
 
@@ -14,6 +15,9 @@ public class HomePage extends BasePage {
 	String baseURL = "https://opensource-demo.orangehrmlive.com/";
 	String activeJobVacanciesURL = "https://opensource-demo.orangehrmlive.com/index.php/recruitmentApply/jobs";
 
+	public HomePage() {
+		super();
+	}
 
 	// Construtor
 	public HomePage(WebDriver driver, WebDriverWait wait) {
