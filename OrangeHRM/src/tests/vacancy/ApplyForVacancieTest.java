@@ -1,4 +1,4 @@
-package tests;
+package tests.vacancy;
 
 import static org.junit.Assert.*;
 
@@ -6,8 +6,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import pages.ActiveJobVacanciesPage;
-import pages.HomePage;
+import pages.vacancy.*;
+import tests.BaseTest;
+import pages.home.*;
 
 public class ApplyForVacancieTest extends BaseTest {
 

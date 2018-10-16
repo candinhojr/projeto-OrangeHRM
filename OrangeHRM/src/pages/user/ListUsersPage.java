@@ -1,18 +1,22 @@
-package pages;
+package pages.user;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import pages.BasePage;
 
 public class ListUsersPage extends BasePage {
 
-  private String addUserBtnId = "btnAdd";
+  @FindBy(id = "btnAdd")
+  private WebElement addUserBtnId;
 
   public ListUsersPage(WebDriver driver, WebDriverWait wait) {
     super(driver, wait);
   }
 
   public void goToAddUserPage() {
-    click(By.id(this.addUserBtnId));
+    click(this.addUserBtnId);
   }
 }

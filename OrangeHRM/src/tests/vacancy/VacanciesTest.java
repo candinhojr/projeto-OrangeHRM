@@ -1,10 +1,11 @@
-package tests;
+package tests.vacancy;
 
 import org.junit.Test;
 
-import pages.HomePage;
-import pages.LoginPage;
-import pages.MainMenuPage;
+import pages.home.*;
+import pages.login.*;
+import pages.mainMenu.*;
+import tests.BaseTest;
 
 public class VacanciesTest extends BaseTest {
 

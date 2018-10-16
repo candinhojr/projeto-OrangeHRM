@@ -1,4 +1,4 @@
-package tests;
+package tests.vacancy;
 
 import static org.junit.Assert.*;
 
@@ -6,11 +6,11 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.Test;
 
-import pages.ActiveVacancyPage;
-import pages.AddVacancyPage;
-import pages.HomePage;
-import pages.LoginPage;
-import pages.MainMenuPage;
+import pages.vacancy.*;
+import tests.BaseTest;
+import pages.home.*;
+import pages.login.*;
+import pages.mainMenu.*;
 
 // TODO Temp pra testar metodos da AddCandidatePage, testa "caminho feliz"
 public class AddVacancyTest extends BaseTest {

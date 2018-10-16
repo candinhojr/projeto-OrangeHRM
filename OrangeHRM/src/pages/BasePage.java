@@ -1,5 +1,4 @@
 package pages;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -16,28 +15,29 @@ public class BasePage {
     }
  
     // Método click
-    public void click (By elementLocation) {
-        driver.findElement(elementLocation).click();
+    public void click (WebElement elementLocation) {
+        elementLocation.click();
     }
  
     // Método writeText
-    public void writeText (By elementLocation, String text) {
-        driver.findElement(elementLocation).sendKeys(text);
+    public void writeText (WebElement elementLocation, String text) {
+        // driver.findElement(elementLocation).sendKeys(text);
+        elementLocation.sendKeys(text);
     }
  
     // Método readText
-    public String readText (By elementLocation) {
-        return driver.findElement(elementLocation).getText();
+    public String readText (WebElement elementLocation) {
+        return elementLocation.getText();
     }
     
     // Método findElement
-    public WebElement findElement(By elementLocation) {
-    	return driver.findElement(elementLocation);
+    public WebElement findElement(WebElement elementLocation) {
+    	return elementLocation;
     }
 
     // Método selectElement pra seleção de dropdowns
-    public Select selectElement(By elementLocation) {
-        return new Select(driver.findElement(elementLocation));
+    public Select selectElement(WebElement elementLocation) {
+        return new Select(elementLocation);
     }
 
 }
