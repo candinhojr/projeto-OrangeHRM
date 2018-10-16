@@ -7,7 +7,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.BasePage;
 import pages.login.LoginPage;
 import pages.vacancy.ActiveJobVacanciesPage;
-import utils.Driver;
 
 public class HomePage extends BasePage {
 

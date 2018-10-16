@@ -43,10 +43,6 @@ public class AddUserPage extends BasePage {
     super(driver, wait);
   }
 
-  public void goToAddUserPage() {
-    System.out.println("go to add user page");
-  }
-
   public void fillEmployeeName(String employeeName) {
     writeText(this.employeeInputId, employeeName);
   }

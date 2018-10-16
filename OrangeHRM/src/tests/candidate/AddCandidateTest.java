@@ -1,10 +1,8 @@
 package tests.candidate;
 
-import static org.junit.Assert.*;
-
-import java.util.concurrent.TimeUnit;
-
+import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.support.PageFactory;
 
 import pages.candidate.*;
 import pages.home.*;
@@ -14,21 +12,21 @@ import tests.BaseTest;
 
 // TODO Temp pra testar metodos da AddCandidatePage, testa "caminho feliz"
 public class AddCandidateTest extends BaseTest {
+
+	private AddCandidatePage addCandidatePage;
+
+	@Before
+	public void setUp() throws Exception {
+		super.setUp();
+
+		this.addCandidatePage = PageFactory.initElements(driver, AddCandidatePage.class);
+	}
 	
 	@Test
 	public void FullRun() throws InterruptedException {
-		// Instanciação dos pages
-		HomePage homePage = new HomePage(driver,wait);
-		LoginPage loginPage = new LoginPage(driver, wait);
-		MainMenuPage menu = new MainMenuPage(driver, wait);
-		ActiveCandidatesPage candidatesPage = new ActiveCandidatesPage(driver, wait);
-		AddCandidatePage addCandPage = new AddCandidatePage(driver, wait);
+		AddCandidatePage addCandPage = PageFactory.initElements(driver, AddCandidatePage.class);
 		
-		// Metodos do page
-		homePage.goToOrangePageLogin();
-		loginPage.loginToOrangeHRM("admin", "admin123");
-		menu.goToViewCandidates();
-		candidatesPage.goToAddCandidatePage();
+		this.home.goToLoginPage().loginToOrangeHRM("Admin", "admin123").goToViewCandidates().goToAddCandidatePage();
 		
 		addCandPage.fillFullName("First", "Middle", "Last");
 		addCandPage.fillEmail("teste@mail.com");

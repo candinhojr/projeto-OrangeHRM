@@ -1,7 +1,5 @@
 package tests.user;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,16 +16,14 @@ public class AddUsersTest extends BaseTest {
   public void setUp() throws Exception {
     super.setUp();
 
-    this.addUserPage = new AddUserPage(driver, wait);
+    this.addUserPage = PageFactory.initElements(driver, AddUserPage.class);
 
-    this.addUserPage.goToAddUserPage();
-    
-    // this.getHomePage().loginToOrangeHRM("Admin", "admin123").goToViewSystemUsers().goToAddUserPage();
+    this.home.goToLoginPage().loginToOrangeHRM("Admin", "admin123").goToViewSystemUsers().goToAddUserPage();
   }
 
   @After
   public void after() throws Exception {
-    driver.quit();
+    // driver.quit();
   }
 
   @Test

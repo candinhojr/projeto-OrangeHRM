@@ -3,17 +3,23 @@ package tests;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import pages.home.HomePage;
 import utils.Driver;
 
 public class BaseTest {
-	public WebDriver driver;
-	public WebDriverWait wait;
+	protected WebDriver driver;
+	protected WebDriverWait wait;
+
+	protected HomePage home;
 
 	public BaseTest() {
 		this.driver = Driver.getInstance().getWebDriver();
 		this.wait = Driver.getInstance().getWebDriverWait();
+
+		this.home = PageFactory.initElements(driver, HomePage.class);
 	}
 
 	// Verificar o uso do BeforeClass
@@ -26,6 +32,7 @@ public class BaseTest {
 	// Verificar o uso do AfterClass
 	@After
 	public void tearDown() throws Exception {
-		driver.quit();
+		// TODO: should logoff if logged in
+		// driver.quit();
 	}
 }

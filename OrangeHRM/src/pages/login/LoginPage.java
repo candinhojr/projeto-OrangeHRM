@@ -11,16 +11,7 @@ import pages.BasePage;
 import pages.mainMenu.MainMenuPage;
 
 public class LoginPage extends BasePage {
-
-	public LoginPage() {
-		super();
-	}
-
-	// Construtor
-	public LoginPage(WebDriver driver, WebDriverWait wait) {
-		super(driver, wait);
-	}
-
+	
 	// Elementos Web
 	@FindBy(id = "txtUsername")
 	WebElement usernameId;
@@ -30,6 +21,15 @@ public class LoginPage extends BasePage {
 	WebElement loginButtonId;
 	@FindBy(id = "spanMessage")
 	WebElement invalidCredentialsId;
+
+	public LoginPage() {
+		super();
+	}
+
+	// Construtor
+	public LoginPage(WebDriver driver, WebDriverWait wait) {
+		super(driver, wait);
+	}
 
 	// Métodos do Page
 	public MainMenuPage loginToOrangeHRM(String username, String password) {

@@ -1,10 +1,7 @@
 package tests.vacancy;
 
-import static org.junit.Assert.*;
-
-import java.util.concurrent.TimeUnit;
-
 import org.junit.Test;
+import org.openqa.selenium.support.PageFactory;
 
 import pages.vacancy.*;
 import tests.BaseTest;
@@ -14,30 +11,25 @@ import pages.mainMenu.*;
 
 // TODO Temp pra testar metodos da AddCandidatePage, testa "caminho feliz"
 public class AddVacancyTest extends BaseTest {
+
+	private AddVacancyPage addVacancyPage;
 	
 	@Test
 	public void CreateVacancyTest() throws InterruptedException {
 		// Instanciação dos pages
-		HomePage homePage = new HomePage(driver,wait);
-		LoginPage loginPage = new LoginPage(driver, wait);
-		MainMenuPage menu = new MainMenuPage(driver, wait);
-		ActiveVacancyPage vacancyPage = new ActiveVacancyPage(driver, wait);
-		AddVacancyPage addVacPage = new AddVacancyPage(driver, wait);
+		AddVacancyPage addVacancyPage = PageFactory.initElements(driver, AddVacancyPage.class);
 		
 		// Metodos do page
-		homePage.goToOrangePageLogin();
-		loginPage.loginToOrangeHRM("admin", "admin123");
-		menu.goToViewJobVacancy();
-		vacancyPage.goToAddVacancyPage();
+		this.home.goToLoginPage().loginToOrangeHRM("Admin", "admin123").goToViewJobVacancy().goToAddJobVacanciePage();
 		
-		addVacPage.selectJobTitle("IT Executive");
-		addVacPage.fillVacancyName("Teste");
-		addVacPage.fillHiringManager("Thomas Fleming");
-		addVacPage.fillNoPositions("3");
-		addVacPage.fillDescription("Testando criar vaga");
+		addVacancyPage.selectJobTitle("IT Executive");
+		addVacancyPage.fillVacancyName("Teste");
+		addVacancyPage.fillHiringManager("Thomas Fleming");
+		addVacancyPage.fillNoPositions("3");
+		addVacancyPage.fillDescription("Testando criar vaga");
 		
 		Thread.sleep(2000);
-		addVacPage.save();
+		addVacancyPage.save();
 	}
 
 }

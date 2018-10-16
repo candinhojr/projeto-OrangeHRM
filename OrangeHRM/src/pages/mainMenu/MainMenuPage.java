@@ -1,6 +1,5 @@
 package pages.mainMenu;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,7 +7,9 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import pages.BasePage;
+import pages.candidate.ActiveCandidatesPage;
 import pages.user.ListUsersPage;
+import pages.vacancy.JobVacanciesListPage;
 
 public class MainMenuPage extends BasePage {
 
@@ -56,14 +57,18 @@ public class MainMenuPage extends BasePage {
 	}
 
 	// Métodos do Page
-	public void goToViewJobVacancy() {
+	public JobVacanciesListPage goToViewJobVacancy() {
 		click(menuRecruitmentId);
 		click(menuRecruitment_ViewVacanciesId);
+
+		return PageFactory.initElements(driver, JobVacanciesListPage.class);
 	}
 
-	public void goToViewCandidates() {
+	public ActiveCandidatesPage goToViewCandidates() {
 		click(menuRecruitmentId);
 		click(menuRecruitment_ViewCandidatesId);
+
+		return PageFactory.initElements(driver, ActiveCandidatesPage.class);
 	}
 
 	public ListUsersPage goToViewSystemUsers() {
