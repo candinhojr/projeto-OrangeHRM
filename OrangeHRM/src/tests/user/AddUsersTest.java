@@ -33,7 +33,6 @@ public class AddUsersTest extends BaseTest {
 
   @After
   public void after() throws Exception {
-    // driver.quit();
     this.home.logOut();
   }
 
@@ -43,7 +42,7 @@ public class AddUsersTest extends BaseTest {
 
     this.addUserPage.clickSave();
 
-    // assertTrue(this.addUserPage.verifyEmployeeInvalid());
+     assertTrue(this.addUserPage.verifyEmployeeInvalid());
   }
 
   @Test
@@ -52,7 +51,7 @@ public class AddUsersTest extends BaseTest {
 
     this.addUserPage.clickSave();
 
-    // assertTrue(this.addUserPage.get());
+     assertTrue(this.addUserPage.verifyUsernameInvalid());
   }
 
   @Category(Success.class)
