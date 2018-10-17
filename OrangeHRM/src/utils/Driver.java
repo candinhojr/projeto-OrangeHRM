@@ -10,8 +10,8 @@ public class Driver {
   private WebDriver driver;
   private WebDriverWait wait;
 
-	// public String driverPath = "dependences/chromedriver";
-	public String driverPath = "dependences/chromedriver.exe";
+	 public String driverPath = "dependences/chromedriver";
+//	public String driverPath = "dependences/chromedriver.exe";
 
   private Driver() {
 

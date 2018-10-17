@@ -71,11 +71,11 @@ public class AddUserPage extends BasePage {
     click(this.saveButtonId);
   }
 
-  // public boolean verifyEmployeeInvalid() {
-  // return readText(this.employeeNameMessage).equalsIgnoreCase("invalid");
-  // }
+  public boolean verifyEmployeeInvalid() {
+	  return readText(this.employeeNameMessage).equalsIgnoreCase("invalid");
+  }
 
-  // public boolean verifyUsernameInvalid() {
-  // return readText(this.usernameMessage)
-  // }
+  public boolean verifyUsernameInvalid() {
+	  return readText(this.usernameMessage).equalsIgnoreCase("invalid");
+  }
 }

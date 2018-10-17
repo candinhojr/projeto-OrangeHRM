@@ -21,7 +21,6 @@ public class ApplyForVacancieTest extends BaseTest {
 
 		this.jobVacanciesPage = PageFactory.initElements(driver, ActiveJobVacanciesPage.class);
 
-		// this.home.goToLoginPage().loginToOrangeHRM("Admin", "admin123").goToViewJobVacancy();
 		this.home.goToActiveJobVacancies();
 	}
 
@@ -30,19 +29,30 @@ public class ApplyForVacancieTest extends BaseTest {
 	}
 
 	@Test
-	public void validTest_ApplyForVacancie() throws InterruptedException {
+	public void validTest_ApplyForVacancieWithAllFieldsCompleted() throws InterruptedException {
 		this.jobVacanciesPage.goToJobVacanciePage();
 		this.jobVacanciesPage.fillFullName("Candinho", "Luiz Dalla Brida", "Junior");
 		this.jobVacanciesPage.fillEmail("candinholuiz@gmail.com");
 		this.jobVacanciesPage.fillContactNo("(48) 9 9657-9797");
-		this.jobVacanciesPage.addResume("dependences/files/pdf_emply.pdf");
+		this.jobVacanciesPage.addResume("dependences/files/pdf_valid.pdf");
 		this.jobVacanciesPage.fillKeyWords("palavras de, teste");
 		this.jobVacanciesPage.fillNotes("Vai dar boa negão");
 		this.jobVacanciesPage.clickSubmit();
 
-		// this.jobVacanciesPage.requiredFields();
+		assertTrue(this.jobVacanciesPage.applyOk());
 	}
 
+	@Test
+	public void validTest_ApplyForVacancieWithOnlyRequiredFieldsCompleted() throws InterruptedException {
+		this.jobVacanciesPage.goToJobVacanciePage();
+		this.jobVacanciesPage.fillFullName("Fevereiro", "", "Quaresma");
+		this.jobVacanciesPage.fillEmail("teste@teste.com");
+		this.jobVacanciesPage.addResume("dependences/files/pdf_valid.pdf");
+		this.jobVacanciesPage.clickSubmit();
+		
+		assertTrue(this.jobVacanciesPage.applyOk());
+	}
+	
 	@Test
 	public void invalidTest_EmplyRequiredFields() throws InterruptedException {
 		this.jobVacanciesPage.goToJobVacanciePage();
@@ -56,15 +66,60 @@ public class ApplyForVacancieTest extends BaseTest {
 		this.jobVacanciesPage.goToJobVacanciePage();
 		this.jobVacanciesPage.fillFullName("Candinho", "", "Junior");
 		this.jobVacanciesPage.fillEmail("teste");
-		this.jobVacanciesPage.addResume("dependences/files/pdf_valido.pdf");
+		this.jobVacanciesPage.addResume("dependences/files/pdf_valid.pdf");
 		this.jobVacanciesPage.clickSubmit();
 
-		this.jobVacanciesPage.emailRequired();
+		this.jobVacanciesPage.emailIncorrect();
 	}
 
+	@Test
+	public void invalidTest_CorrompedDocument() throws InterruptedException {
+		this.jobVacanciesPage.goToJobVacanciePage();
+		this.jobVacanciesPage.fillFullName("Candinho", "", "Junior");
+		this.jobVacanciesPage.fillEmail("teste");
+		this.jobVacanciesPage.addResume("dependences/files/pdf_corrupted.pdf");
+		this.jobVacanciesPage.clickSubmit();
+
+//		this.jobVacanciesPage.resumeRequired();
+	}
+	
+	@Test
+	public void invalidTest_DocumentGreaterThan1M() throws InterruptedException {
+		this.jobVacanciesPage.goToJobVacanciePage();
+		this.jobVacanciesPage.fillFullName("Candinho", "", "Junior");
+		this.jobVacanciesPage.fillEmail("teste");
+		this.jobVacanciesPage.addResume("dependences/files/pdf_2M.pdf");
+		this.jobVacanciesPage.clickSubmit();
+
+//		this.jobVacanciesPage.resumeRequired();
+	}
+	
+	@Test
+	public void validTest_Document1M() throws InterruptedException {
+		this.jobVacanciesPage.goToJobVacanciePage();
+		this.jobVacanciesPage.fillFullName("Candinho", "", "Junior");
+		this.jobVacanciesPage.fillEmail("teste");
+		this.jobVacanciesPage.addResume("dependences/files/pdf_1M.pdf");
+		this.jobVacanciesPage.clickSubmit();
+
+//		this.jobVacanciesPage.resumeRequired();
+	}
+	
+	@Test
+	public void validTest_InvalidDocument() throws InterruptedException {
+		this.jobVacanciesPage.goToJobVacanciePage();
+		this.jobVacanciesPage.fillFullName("Candinho", "", "Junior");
+		this.jobVacanciesPage.fillEmail("teste");
+		this.jobVacanciesPage.addResume("dependences/files/image.jpg");
+		this.jobVacanciesPage.clickSubmit();
+
+//		this.jobVacanciesPage.resumeRequired();
+	}
+	
 	@Test
 	public void invalidTest_NoActiveJobVacancies() throws NoSuchElementException {
 		assertTrue(this.jobVacanciesPage.checkForVacancies());
 	}
 
+	// TODO: Teste com outros arquivos e tamanhos diferentes
 }
