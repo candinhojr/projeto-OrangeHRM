@@ -1,6 +1,6 @@
 package constants.domain.user;
 
 public class UserStatus {
-  public final String ENABLED = "Enabled";
-  public final String DISABLED = "Disabled";
+  public static final String ENABLED = "Enabled";
+  public static final String DISABLED = "Disabled";
 }

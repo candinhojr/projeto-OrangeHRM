@@ -1,20 +1,26 @@
 package domain;
 
+import java.util.Random;
+
 import constants.domain.user.*;
 
 public class User {
 
-  private String username;
+  private final int NEXT_INT = new Random().nextInt(1000);
 
-  private String password;
+  private String username = "user_test_" + NEXT_INT;
 
-  private String employeeName;
+  private String password  = "password_test_123";
 
-  private UserStatus userStatus;
+  private String employeeName = "John Smith";
 
-  private UserRoles userRoles;
+  private String userStatus = UserStatus.ENABLED;
 
-  public User(String username, String password, String employeeName, UserStatus userStatus, UserRoles userRoles) {
+  private String userRoles = UserRoles.ESS;
+
+  public User() {}
+
+  public User(String username, String password, String employeeName, String userStatus, String userRoles) {
     this.setUsername(username);
     this.setPassword(password);
     this.setEmployeeName(employeeName);
@@ -25,28 +31,28 @@ public class User {
   /**
    * @return the userRoles
    */
-  public UserRoles getUserRoles() {
+  public String getUserRoles() {
     return userRoles;
   }
 
   /**
    * @param userRoles the userRoles to set
    */
-  public void setUserRoles(UserRoles userRoles) {
+  public void setUserRoles(String userRoles) {
     this.userRoles = userRoles;
   }
 
   /**
    * @return the userStatus
    */
-  public UserStatus getUserStatus() {
+  public String getUserStatus() {
     return userStatus;
   }
 
   /**
    * @param userStatus the userStatus to set
    */
-  public void setUserStatus(UserStatus userStatus) {
+  public void setUserStatus(String userStatus) {
     this.userStatus = userStatus;
   }
 

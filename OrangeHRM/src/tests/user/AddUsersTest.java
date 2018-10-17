@@ -1,6 +1,6 @@
 package tests.user;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
@@ -8,7 +8,9 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openqa.selenium.support.PageFactory;
 
+import domain.User;
 import pages.user.AddUserPage;
+import pages.user.ListUsersPage;
 import tests.BaseTest;
 import utils.Success;
 
@@ -16,11 +18,15 @@ public class AddUsersTest extends BaseTest {
 
   private AddUserPage addUserPage;
 
+  private ListUsersPage listUserPage;
+
   @Before
   public void setUp() throws Exception {
     super.setUp();
 
     this.addUserPage = PageFactory.initElements(driver, AddUserPage.class);
+
+    this.listUserPage = PageFactory.initElements(driver, ListUsersPage.class);
 
     this.home.goToLoginPage().loginToOrangeHRM("Admin", "admin123").goToViewSystemUsers().goToAddUserPage();
   }
@@ -51,14 +57,13 @@ public class AddUsersTest extends BaseTest {
   @Category(Success.class)
   @Test
   public void successTest_addUser() {
-    this.addUserPage.fillEmployeeName("Teste 123");
-    this.addUserPage.fillUsername("user_test_123");
-    this.addUserPage.fillPassword("password_123");
-    this.addUserPage.fillConfirmPassword("password_123");
-    this.addUserPage.selectStatus("Enabled");
-    this.addUserPage.selectUserRole("ESS");
+    User user = new User();
+
+    this.addUserPage.createUser(user);
 
     this.addUserPage.clickSave();
+
+    assertTrue(this.listUserPage.isSuccessMessagePresent());
   }
 
 }

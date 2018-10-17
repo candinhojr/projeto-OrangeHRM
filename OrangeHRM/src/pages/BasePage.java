@@ -79,7 +79,7 @@ public class BasePage {
         return PageFactory.initElements(driver, HomePage.class);
     }
 
-    private void waitTime(long time) {
+    protected void waitTime(long time) {
         driver.manage().timeouts().implicitlyWait(time, TimeUnit.MILLISECONDS);
     }
 
