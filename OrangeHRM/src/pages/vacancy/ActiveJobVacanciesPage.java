@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import domain.Candidate;
 import pages.BasePage;
 
 public class ActiveJobVacanciesPage extends BasePage {
@@ -73,6 +74,15 @@ public class ActiveJobVacanciesPage extends BasePage {
 	// Métodos do Page
 	public void goToJobVacanciePage() {
 		click(applyButtonXpath);
+	}
+	
+	public void createCandidate(Candidate candidate) {
+		this.fillFullName(candidate.getFirstName(), candidate.getMiddleName(), candidate.getLastName());
+		this.fillEmail(candidate.getEmail());
+		this.fillContactNo(candidate.getContactNumber());
+		this.addResume(candidate.getResume());
+		this.fillKeyWords(candidate.getKeyWords());
+		this.fillNotes(candidate.getNotes());
 	}
 	
 	public void fillFullName(String firstName, String middleName, String lastName) {

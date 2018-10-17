@@ -5,13 +5,16 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.PageFactory;
 
+import domain.Candidate;
 import pages.vacancy.*;
 import tests.BaseTest;
+import utils.Success;
 
-public class ApplyForVacancieTest extends BaseTest {
+public class AddCandidateForVacancieTest extends BaseTest {
 
 	private ActiveJobVacanciesPage jobVacanciesPage;
 
@@ -28,15 +31,11 @@ public class ApplyForVacancieTest extends BaseTest {
 	public void after() throws Exception {
 	}
 
+	@Category(Success.class)
 	@Test
-	public void validTest_ApplyForVacancieWithAllFieldsCompleted() throws InterruptedException {
+	public void successTest_AddCandidateForVacancieWithAllFieldsCompleted() throws InterruptedException {
 		this.jobVacanciesPage.goToJobVacanciePage();
-		this.jobVacanciesPage.fillFullName("Candinho", "Luiz Dalla Brida", "Junior");
-		this.jobVacanciesPage.fillEmail("candinholuiz@gmail.com");
-		this.jobVacanciesPage.fillContactNo("(48) 9 9657-9797");
-		this.jobVacanciesPage.addResume("dependences/files/pdf_valid.pdf");
-		this.jobVacanciesPage.fillKeyWords("palavras de, teste");
-		this.jobVacanciesPage.fillNotes("Vai dar boa negão");
+		this.jobVacanciesPage.createCandidate(new Candidate());
 		this.jobVacanciesPage.clickSubmit();
 
 		assertTrue(this.jobVacanciesPage.applyOk());
