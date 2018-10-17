@@ -1,6 +1,6 @@
 package constants.domain.user;
 
 public class UserRoles {
-  public final String ESS = "ESS";
-  public final String ADMIN = "ADMIN";
+  public static final String ESS = "ESS";
+  public static final String ADMIN = "ADMIN";
 }

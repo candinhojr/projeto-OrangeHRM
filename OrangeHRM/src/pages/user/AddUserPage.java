@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import domain.User;
 import pages.BasePage;
 
 public class AddUserPage extends BasePage {
@@ -69,6 +70,17 @@ public class AddUserPage extends BasePage {
 
   public void clickSave() {
     click(this.saveButtonId);
+  }
+
+  public void createUser(User user) {
+    this.fillUsername(user.getUsername());
+    this.fillPassword(user.getPassword());
+    this.fillConfirmPassword(user.getPassword());
+    this.fillEmployeeName(user.getEmployeeName());
+    this.selectStatus(user.getUserStatus());
+    this.selectUserRole(user.getUserRoles());
+
+    this.clickSave();
   }
 
   // public boolean verifyEmployeeInvalid() {
