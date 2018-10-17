@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import domain.Candidate;
 import pages.BasePage;
 
 public class ActiveJobVacanciesPage extends BasePage {
@@ -42,6 +43,9 @@ public class ActiveJobVacanciesPage extends BasePage {
 	WebElement emailRequiredXpath;
 	@FindBy(xpath = "//*[@id=\"addCandidate_resume\"]")
 	WebElement resumeRequiredXpath;
+	
+	@FindBy(xpath = "//*[@id=\"frmAddCandidate\"]/fieldset/ol[2]/li[1]/span")
+	WebElement resumeUploaded;
 
 	// Pagina de uma vaga em especifico
 	@FindBy(id = "addCandidateHeading")
@@ -70,6 +74,15 @@ public class ActiveJobVacanciesPage extends BasePage {
 	// Métodos do Page
 	public void goToJobVacanciePage() {
 		click(applyButtonXpath);
+	}
+	
+	public void createCandidate(Candidate candidate) {
+		this.fillFullName(candidate.getFirstName(), candidate.getMiddleName(), candidate.getLastName());
+		this.fillEmail(candidate.getEmail());
+		this.fillContactNo(candidate.getContactNumber());
+		this.addResume(candidate.getResume());
+		this.fillKeyWords(candidate.getKeyWords());
+		this.fillNotes(candidate.getNotes());
 	}
 	
 	public void fillFullName(String firstName, String middleName, String lastName) {
@@ -122,16 +135,13 @@ public class ActiveJobVacanciesPage extends BasePage {
 		this.resumeRequired();
 	}
 	
-	public void requiredFieldsOK() {
-		this.firstNameRequired();
-		this.lastNameRequired();
-		this.emailRequired();
-		this.resumeRequired();
+	public boolean applyOk() {
+		return readText(this.resumeUploaded).equalsIgnoreCase("Uploaded");
 	}
 
 	public void firstNameRequired() {
 		String color = findElement(firstNameInputId).getCssValue("border-color").trim();
-		System.out.println("RGB Color of header: " + color);
+//		System.out.println("RGB Color of header: " + color);
 		String color_hex[];  
 		color_hex = color.replace("rgb(", "").replace(")", "").split(",|,\\s");
 		String actual_hex = String.format("#%02x%02x%02x", Integer.parseInt(color_hex[0].trim()), Integer.parseInt(color_hex[1].trim()), Integer.parseInt(color_hex[2].trim()));  
@@ -144,46 +154,38 @@ public class ActiveJobVacanciesPage extends BasePage {
 	
 	public void lastNameRequired() {
 		String color = findElement(lastNameInputId).getCssValue("border-color").trim();
-		System.out.println("RGB Color of header: " + color);
 		String color_hex[];  
 		color_hex = color.replace("rgb(", "").replace(")", "").split(",|,\\s");
 		String actual_hex = String.format("#%02x%02x%02x", Integer.parseInt(color_hex[0].trim()), Integer.parseInt(color_hex[1].trim()), Integer.parseInt(color_hex[2].trim()));  
 		Assert.assertEquals("actual_hex should equal to: ", "#aa4935", actual_hex);
 		readText(lastNameRequiredXpath).equalsIgnoreCase("required");
-//		return "#aa4935".equals(actual_hex) && "Required".equals(readText(lastNameRequiredXpath));
 	}
 	
 	public void emailRequired() {
 		String color = findElement(emailInputId).getCssValue("border-color").trim();
-		System.out.println("RGB Color of header: " + color);
 		String color_hex[];  
 		color_hex = color.replace("rgb(", "").replace(")", "").split(",|,\\s");
 		String actual_hex = String.format("#%02x%02x%02x", Integer.parseInt(color_hex[0].trim()), Integer.parseInt(color_hex[1].trim()), Integer.parseInt(color_hex[2].trim()));  
 		Assert.assertEquals("actual_hex should equal to: ", "#aa4935", actual_hex);
 		readText(emailRequiredXpath).equalsIgnoreCase("required");
-//		return "#aa4935".equals(actual_hex) && "Required".equals(readText(emailRequiredXpath));
 	}
 	
-	private void resumeRequired() {
+	public void resumeRequired() {
 		String color = findElement(resumeInputFileId).getCssValue("border-color").trim();
-		System.out.println("RGB Color of header: " + color);
 		String color_hex[];  
 		color_hex = color.replace("rgb(", "").replace(")", "").split(",|,\\s");
 		String actual_hex = String.format("#%02x%02x%02x", Integer.parseInt(color_hex[0].trim()), Integer.parseInt(color_hex[1].trim()), Integer.parseInt(color_hex[2].trim()));  
 		Assert.assertEquals("actual_hex should equal to: ", "#aa4935", actual_hex);
 		readText(resumeRequiredXpath).equalsIgnoreCase("required");		
-//		return "#aa4935".equals(actual_hex) && "Required".equals(readText(resumeRequiredXpath));
 	}
 	
-	private void emailIncorrect() {
+	public void emailIncorrect() {
 		String color = findElement(emailInputId).getCssValue("border-color").trim();
-		System.out.println("RGB Color of header: " + color);
 		String color_hex[];  
 		color_hex = color.replace("rgb(", "").replace(")", "").split(",|,\\s");
 		String actual_hex = String.format("#%02x%02x%02x", Integer.parseInt(color_hex[0].trim()), Integer.parseInt(color_hex[1].trim()), Integer.parseInt(color_hex[2].trim()));  
 		Assert.assertEquals("actual_hex should equal to: ", "#aa4935", actual_hex);
 		readText(emailRequiredXpath).equalsIgnoreCase("Expected format: admin@example.com");
-//		return "#aa4935".equals(actual_hex) && "Expected format: admin@example.com".equals(readText(emailRequiredXpath));
 	}
 	
 }

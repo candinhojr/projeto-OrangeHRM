@@ -7,14 +7,14 @@ import org.junit.runners.Suite;
 import tests.login.LoginTest;
 import tests.user.AddUsersTest;
 import tests.vacancy.AddVacancyTest;
-import tests.vacancy.ApplyForVacancieTest;
+import tests.vacancy.AddCandidateForVacancieTest;
 import utils.Success;
 
 @RunWith(Suite.class)
 @IncludeCategory(Success.class)
 @Suite.SuiteClasses({
   AddVacancyTest.class,
-  ApplyForVacancieTest.class,
+  AddCandidateForVacancieTest.class,
   // TODO: AcceptSubscriptionTest.class,
   // TODO: Interview.class, -> markInterviewTest, passInterviewTest
   // TODO: OfferJob.class,
