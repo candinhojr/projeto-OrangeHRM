@@ -1,7 +1,5 @@
 package pages.candidate;
 
-import java.io.File;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,6 +20,9 @@ public class ActiveCandidatesPage extends BasePage {
 	
 	// Elementos Web
 	// Pagina com todos os candidatos
+	@FindBy(linkText="Teste Testiniano Testando")
+	WebElement candidate;
+	
 	@FindBy(xpath = "//*[@id=\"btnAdd\"]")
 	WebElement addCandidateButtonXpath;
 	
@@ -57,7 +58,11 @@ public class ActiveCandidatesPage extends BasePage {
 		return PageFactory.initElements(driver, AddCandidatePage.class);
 	}
 	
-	
+	public AddCandidatePage goToCandidatePage() {
+		click(candidate);
+		
+		return PageFactory.initElements(driver, AddCandidatePage.class);
+	}
 	/*public void firstNameRequired() {
 		String color = findElement(By.id(firstNameInputId)).getCssValue("border-color").trim();
 		System.out.println("RGB Color of header: " + color);

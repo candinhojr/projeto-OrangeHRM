@@ -1,5 +1,7 @@
 package domain;
 
+import constants.domain.user.CandidateActions;
+
 public class Candidate {
 
 	private String firstName = "Teste";
@@ -10,6 +12,9 @@ public class Candidate {
   	private String resume = "dependences/files/pdf_valid.pdf";
   	private String keyWords = "palavras chave";
   	private String notes = "Uso fruto de um teste";
+  	private String candidateShortlist = CandidateActions.SHORTLIST;
+  	private String candidateScheduleInterview = CandidateActions.SCHEDULE_INTERVIEW;
+  	private String candidateReject = CandidateActions.REJECT;
   	
 	public Candidate(String firstName, String middleName, String lastName, String email, String contactNumber, String resume, String keyWords, String notes) {
 		this.firstName = firstName;
@@ -136,6 +141,27 @@ public class Candidate {
 	 */
 	public void setNotes(String notes) {
 		this.notes = notes;
+	}
+
+	/**
+	 * @return the candidateActions
+	 */
+	public String getCandidateShortlist() {
+		return candidateShortlist;
+	}
+
+	/**
+	 * @return the candidateScheduleInterview
+	 */
+	public String getCandidateScheduleInterview() {
+		return candidateScheduleInterview;
+	}
+
+	/**
+	 * @return the candidateReject
+	 */
+	public String getCandidateReject() {
+		return candidateReject;
 	}
   	
 }

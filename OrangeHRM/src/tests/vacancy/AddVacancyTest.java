@@ -2,13 +2,12 @@ package tests.vacancy;
 
 import org.junit.After;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.openqa.selenium.support.PageFactory;
 
 import pages.vacancy.*;
 import tests.BaseTest;
-import pages.home.*;
-import pages.login.*;
-import pages.mainMenu.*;
+import utils.Success;
 
 // TODO Temp pra testar metodos da AddCandidatePage, testa "caminho feliz"
 public class AddVacancyTest extends BaseTest {
@@ -23,10 +22,11 @@ public class AddVacancyTest extends BaseTest {
 		this.home.logOut();
 	}
 	
+	@Category(Success.class)
 	@Test
 	public void CreateVacancyTest() throws InterruptedException {
 		// Instanciação dos pages
-		AddVacancyPage addVacancyPage = PageFactory.initElements(driver, AddVacancyPage.class);
+		this.addVacancyPage = PageFactory.initElements(driver, AddVacancyPage.class);
 		
 		// Metodos do page
 		this.home.goToLoginPage().loginToOrangeHRM("Admin", "admin123").goToViewJobVacancy().goToAddJobVacanciePage();

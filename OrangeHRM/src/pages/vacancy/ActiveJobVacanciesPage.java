@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import domain.Candidate;
@@ -24,56 +25,58 @@ public class ActiveJobVacanciesPage extends BasePage {
 	// Elementos Web
 	// Pagina com todas as vagas em aberto
 	@FindBy(xpath = "//*[@id=\"jobPage\"]/div/div/div[1]/h1/font/font")
-	WebElement titleActiveJobVacanciesXpath;
+	private WebElement titleActiveJobVacanciesXpath;
 	@FindBy(xpath = "//*[@id=\"jobPage\"]/div/div/div[2]/span/font/font")
-	WebElement messageNoActiveJobVacanciesXpath;
+	private WebElement messageNoActiveJobVacanciesXpath;
 	
 	@FindBy(xpath = "//*[@id=\"jobPage\"]/div/div/div[2]/div[3]/div")
-	WebElement vacancyTitleXpath;
+	private WebElement vacancyTitleXpath;
 	@FindBy(xpath = "//*[@id=\"jobPage\"]/div/div/div[2]/div[3]/pre[1]")
-	WebElement vacancyJobDescriptionXpath;
+	private WebElement vacancyJobDescriptionXpath;
 	@FindBy(xpath = "//*[@id=\"jobPage\"]/div/div/div[2]/div[3]/p/input")
-	WebElement applyButtonXpath;
+	private WebElement applyButtonXpath;
 	
 	@FindBy(xpath = "//*[@id=\"frmAddCandidate\"]/fieldset/ol[1]/li[2]/ol/li[1]/span")
-	WebElement firstNameRequiredXpath;
+	private WebElement firstNameRequiredXpath;
 	@FindBy(xpath = "//*[@id=\"addCandidate_lastName\"]")
-	WebElement lastNameRequiredXpath;
+	private WebElement lastNameRequiredXpath;
 	@FindBy(xpath = "//*[@id=\"addCandidate_email\"]")
-	WebElement emailRequiredXpath;
+	private WebElement emailRequiredXpath;
 	@FindBy(xpath = "//*[@id=\"addCandidate_resume\"]")
-	WebElement resumeRequiredXpath;
+	private WebElement resumeRequiredXpath;
 	
 	@FindBy(xpath = "//*[@id=\"frmAddCandidate\"]/fieldset/ol[2]/li[1]/span")
-	WebElement resumeUploaded;
+	private WebElement resumeUploaded;
 
 	// Pagina de uma vaga em especifico
 	@FindBy(id = "addCandidateHeading")
-	WebElement vacancieTitleId;
+	private WebElement vacancieTitleId;
 	@FindBy(id = "addCandidate_firstName")
-	WebElement firstNameInputId;
+	private WebElement firstNameInputId;
 	@FindBy(id = "addCandidate_middleName")
-	WebElement middleNameInputId;
+	private WebElement middleNameInputId;
 	@FindBy(id = "addCandidate_lastName")
-	WebElement lastNameInputId;
+	private WebElement lastNameInputId;
 	@FindBy(id = "addCandidate_email")
-	WebElement emailInputId;
+	private WebElement emailInputId;
 	@FindBy(id = "addCandidate_contactNo")
-	WebElement contactNoInputId;
+	private WebElement contactNoInputId;
 	@FindBy(id = "addCandidate_resume")
-	WebElement resumeInputFileId;
+	private WebElement resumeInputFileId;
 	@FindBy(id = "addCandidate_keyWords")
-	WebElement keyWordsInputId;
+	private WebElement keyWordsInputId;
 	@FindBy(id = "notes")
-	WebElement notesInputId;
+	private WebElement notesInputId;
 	@FindBy(id = "btnSave")
-	WebElement submitButtonId;
+	private WebElement submitButtonId;
 	@FindBy(id = "backLink")
-	WebElement backToListId;
+	private WebElement backToListId;
+	@FindBy(css = ".message")
+	private WebElement message;
 
 	// Métodos do Page
 	public void goToJobVacanciePage() {
-		click(applyButtonXpath);
+		click(this.applyButtonXpath);
 	}
 	
 	public void createCandidate(Candidate candidate) {
@@ -86,46 +89,46 @@ public class ActiveJobVacanciesPage extends BasePage {
 	}
 	
 	public void fillFullName(String firstName, String middleName, String lastName) {
-        writeText(firstNameInputId, firstName);
-        writeText(middleNameInputId, middleName);
-        writeText(lastNameInputId, lastName);
+        writeText(this.firstNameInputId, firstName);
+        writeText(this.middleNameInputId, middleName);
+        writeText(this.lastNameInputId, lastName);
 	}
 	
 	public void fillEmail(String email) {
-		writeText(emailInputId, email);
+		writeText(this.emailInputId, email);
 	}
 	
 	public void fillContactNo(String contactNo) {
-		writeText(contactNoInputId, contactNo);
+		writeText(this.contactNoInputId, contactNo);
 	}
 	
 	public void addResume(String pathOfResume) {
-		click(resumeInputFileId);
+		click(this.resumeInputFileId);
 		File file = new File(pathOfResume);
-		findElement(resumeInputFileId).sendKeys(file.getAbsolutePath());
+		findElement(this.resumeInputFileId).sendKeys(file.getAbsolutePath());
 	}	
 	
 	public void fillKeyWords(String keyWords) {
 		String[] separateText = keyWords.split("\\s|,\\s|;\\s");
 		for (String keyWord : separateText) {
-			writeText(keyWordsInputId, keyWord + " ");
+			writeText(this.keyWordsInputId, keyWord + " ");
 		}
 	}
 	
 	public void fillNotes(String notes) {
-		writeText(notesInputId, notes);
+		writeText(this.notesInputId, notes);
 	}
 	
 	public void clickSubmit() {
-		click(submitButtonId);
+		click(this.submitButtonId);
 	}
 	
 	public void backToListOfJobVacancies() {
-		click(backToListId);
+		click(this.backToListId);
 	}
 	
 	public boolean checkForVacancies() {
-		return readText(messageNoActiveJobVacanciesXpath).equalsIgnoreCase("No active job vacancies to display");
+		return readText(this.messageNoActiveJobVacanciesXpath).equalsIgnoreCase("No active job vacancies to display");
 	}
 	
 	public void requiredFields() {
@@ -140,25 +143,25 @@ public class ActiveJobVacanciesPage extends BasePage {
 	}
 
 	public void firstNameRequired() {
-		String color = findElement(firstNameInputId).getCssValue("border-color").trim();
+		String color = findElement(this.firstNameInputId).getCssValue("border-color").trim();
 //		System.out.println("RGB Color of header: " + color);
 		String color_hex[];  
 		color_hex = color.replace("rgb(", "").replace(")", "").split(",|,\\s");
 		String actual_hex = String.format("#%02x%02x%02x", Integer.parseInt(color_hex[0].trim()), Integer.parseInt(color_hex[1].trim()), Integer.parseInt(color_hex[2].trim()));  
 //		System.out.println("HEX Color of header: " + actual_hex);
 		Assert.assertEquals("actual_hex should equal to: ", "#aa4935", actual_hex);
-		readText(firstNameRequiredXpath).equalsIgnoreCase("required");
+		readText(this.firstNameRequiredXpath).equalsIgnoreCase("required");
 //		Assert.assertEquals("Required", findElement(firstNameRequiredXpath).getText()); 
 //		return "#aa4935".equals(actual_hex) && "Required".equals(readText(firstNameRequiredXpath));
 	}
 	
 	public void lastNameRequired() {
-		String color = findElement(lastNameInputId).getCssValue("border-color").trim();
+		String color = findElement(this.lastNameInputId).getCssValue("border-color").trim();
 		String color_hex[];  
 		color_hex = color.replace("rgb(", "").replace(")", "").split(",|,\\s");
 		String actual_hex = String.format("#%02x%02x%02x", Integer.parseInt(color_hex[0].trim()), Integer.parseInt(color_hex[1].trim()), Integer.parseInt(color_hex[2].trim()));  
 		Assert.assertEquals("actual_hex should equal to: ", "#aa4935", actual_hex);
-		readText(lastNameRequiredXpath).equalsIgnoreCase("required");
+		readText(this.lastNameRequiredXpath).equalsIgnoreCase("required");
 	}
 	
 	public void emailRequired() {
@@ -167,7 +170,7 @@ public class ActiveJobVacanciesPage extends BasePage {
 		color_hex = color.replace("rgb(", "").replace(")", "").split(",|,\\s");
 		String actual_hex = String.format("#%02x%02x%02x", Integer.parseInt(color_hex[0].trim()), Integer.parseInt(color_hex[1].trim()), Integer.parseInt(color_hex[2].trim()));  
 		Assert.assertEquals("actual_hex should equal to: ", "#aa4935", actual_hex);
-		readText(emailRequiredXpath).equalsIgnoreCase("required");
+		readText(this.emailRequiredXpath).equalsIgnoreCase("required");
 	}
 	
 	public void resumeRequired() {
@@ -176,16 +179,22 @@ public class ActiveJobVacanciesPage extends BasePage {
 		color_hex = color.replace("rgb(", "").replace(")", "").split(",|,\\s");
 		String actual_hex = String.format("#%02x%02x%02x", Integer.parseInt(color_hex[0].trim()), Integer.parseInt(color_hex[1].trim()), Integer.parseInt(color_hex[2].trim()));  
 		Assert.assertEquals("actual_hex should equal to: ", "#aa4935", actual_hex);
-		readText(resumeRequiredXpath).equalsIgnoreCase("required");		
+		readText(this.resumeRequiredXpath).equalsIgnoreCase("required");		
 	}
 	
 	public void emailIncorrect() {
-		String color = findElement(emailInputId).getCssValue("border-color").trim();
+		String color = findElement(this.emailInputId).getCssValue("border-color").trim();
 		String color_hex[];  
 		color_hex = color.replace("rgb(", "").replace(")", "").split(",|,\\s");
 		String actual_hex = String.format("#%02x%02x%02x", Integer.parseInt(color_hex[0].trim()), Integer.parseInt(color_hex[1].trim()), Integer.parseInt(color_hex[2].trim()));  
 		Assert.assertEquals("actual_hex should equal to: ", "#aa4935", actual_hex);
-		readText(emailRequiredXpath).equalsIgnoreCase("Expected format: admin@example.com");
+		readText(this.emailRequiredXpath).equalsIgnoreCase("Expected format: admin@example.com");
 	}
+	
+	public boolean isSuccessMessagePresent() {
+	    ExpectedConditions.visibilityOf(message);
+
+	    return this.message.getText().contains("Application Received");
+	  }
 	
 }

@@ -39,6 +39,8 @@ public class AddCandidateForVacancieTest extends BaseTest {
 		this.jobVacanciesPage.clickSubmit();
 
 		assertTrue(this.jobVacanciesPage.applyOk());
+		assertTrue(this.jobVacanciesPage.isSuccessMessagePresent());
+		
 	}
 
 	@Test
@@ -79,7 +81,7 @@ public class AddCandidateForVacancieTest extends BaseTest {
 		this.jobVacanciesPage.addResume("dependences/files/pdf_corrupted.pdf");
 		this.jobVacanciesPage.clickSubmit();
 
-//		this.jobVacanciesPage.resumeRequired();
+		assertTrue(this.jobVacanciesPage.isSuccessMessagePresent());
 	}
 	
 	@Test
@@ -90,7 +92,7 @@ public class AddCandidateForVacancieTest extends BaseTest {
 		this.jobVacanciesPage.addResume("dependences/files/pdf_2M.pdf");
 		this.jobVacanciesPage.clickSubmit();
 
-//		this.jobVacanciesPage.resumeRequired();
+		assertTrue(this.jobVacanciesPage.isSuccessMessagePresent());
 	}
 	
 	@Test
@@ -101,7 +103,7 @@ public class AddCandidateForVacancieTest extends BaseTest {
 		this.jobVacanciesPage.addResume("dependences/files/pdf_1M.pdf");
 		this.jobVacanciesPage.clickSubmit();
 
-//		this.jobVacanciesPage.resumeRequired();
+		assertTrue(this.jobVacanciesPage.isSuccessMessagePresent());
 	}
 	
 	@Test
@@ -112,7 +114,7 @@ public class AddCandidateForVacancieTest extends BaseTest {
 		this.jobVacanciesPage.addResume("dependences/files/image.jpg");
 		this.jobVacanciesPage.clickSubmit();
 
-//		this.jobVacanciesPage.resumeRequired();
+		assertTrue(this.jobVacanciesPage.isSuccessMessagePresent());
 	}
 	
 	@Test

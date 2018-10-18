@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import domain.Candidate;
 import pages.BasePage;
 
 import org.openqa.selenium.support.FindBy;
@@ -27,7 +28,11 @@ public class AddCandidatePage extends BasePage {
 	private WebElement contactNo;
 	@FindBy(name = "addCandidate[vacancy]")
 	private WebElement vacancy;
-
+	@FindBy(id = "viewCandidateAction_1")
+	private WebElement selectAction;
+	@FindBy(xpath = "//*[@id=\"0\"]/span")
+	private WebElement statusMessage;
+	
 	public AddCandidatePage() {
 		super();
 	}
@@ -67,5 +72,19 @@ public class AddCandidatePage extends BasePage {
 	public void selectJobVacancy(String vacancy) throws NoSuchElementException {
 		Select vacancyList = new Select(this.vacancy);
 		vacancyList.selectByVisibleText(vacancy);
+	}
+	
+	public void selectAction(String action) throws NoSuchElementException {
+		selectElement(this.selectAction).selectByVisibleText(action);
+	}
+	
+	public void clickActionShortlist() {
+		Candidate candidate = new Candidate();
+		this.selectAction(candidate.getCandidateShortlist());
+	}
+	
+	public void clickActionScheduleInterview() {
+		Candidate candidate = new Candidate();
+		this.selectAction(candidate.getCandidateScheduleInterview());
 	}
 }
