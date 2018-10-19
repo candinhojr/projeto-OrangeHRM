@@ -24,6 +24,8 @@ public class ScheduleInterviewCandidateTest extends BaseTest {
 		super.setUp();
 
 		this.addCandidatePage = PageFactory.initElements(driver, AddCandidatePage.class);
+		
+		this.scheduleInterviewCandidatePage = PageFactory.initElements(driver, ScheduleInterviewCandidatePage.class);
 
 		this.home.goToLoginPage().loginToOrangeHRM("Admin", "admin123").goToViewCandidates().goToCandidatePage();
 	}
@@ -35,7 +37,7 @@ public class ScheduleInterviewCandidateTest extends BaseTest {
 		this.home.logOut();
 	}
 	
-	@Category(Success.class)
+	@Category({Success.class})
 	@Test
 	public void shortlistCandidate() throws NoSuchElementException {	
 		addCandidatePage.clickActionScheduleInterview();

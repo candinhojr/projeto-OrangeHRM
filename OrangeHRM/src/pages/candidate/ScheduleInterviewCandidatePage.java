@@ -39,6 +39,7 @@ public class ScheduleInterviewCandidatePage extends BasePage {
 	}
 	
 	public void fillInterviewDate(String interviewDate) {
+		click(interviewDateId);
 		writeText(interviewDateId, interviewDate);
 	}
 	

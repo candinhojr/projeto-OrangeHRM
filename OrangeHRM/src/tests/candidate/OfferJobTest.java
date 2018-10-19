@@ -10,28 +10,29 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openqa.selenium.support.PageFactory;
 
-import pages.candidate.*;
+import pages.candidate.AddCandidatePage;
+import pages.candidate.OfferJobPage;
+import pages.candidate.ViewActionHistoryPage;
 import tests.BaseTest;
 import utils.Success;
 
-// TODO Temp pra testar metodos da AddCandidatePage, testa "caminho feliz"
-public class ShortlistCandidateTest extends BaseTest {
-
+public class OfferJobTest extends BaseTest{
+	
 	private AddCandidatePage addCandidatePage;
-	private ShortlistCandidatePage shortlistCandidatePage;
+	private OfferJobPage offerJobPage;
 	private ViewActionHistoryPage viewActionHistoryPage;
 
 	@Before
 	public void setUp() throws Exception {
 		super.setUp();
-
+		
 		this.addCandidatePage = PageFactory.initElements(driver, AddCandidatePage.class);
 		
-		this.shortlistCandidatePage = PageFactory.initElements(driver, ShortlistCandidatePage.class);
+		this.offerJobPage = PageFactory.initElements(driver, OfferJobPage.class);
 		
 		this.viewActionHistoryPage = PageFactory.initElements(driver, ViewActionHistoryPage.class);
-
-		this.home.goToLoginPage().loginToOrangeHRM("Admin", "admin123").goToViewCandidates().goToCandidatePage();
+		
+		this.home.goToLoginPage().loginToOrangeHRM("Admin", "admin123").goToViewCandidates().goToCandidatePage();	
 	}
 
 	@After
@@ -40,12 +41,12 @@ public class ShortlistCandidateTest extends BaseTest {
 
 		this.home.logOut();
 	}
-	
+
 	@Category({Success.class})
 	@Test
-	public void shortlistCandidate() throws NoSuchElementException {	
-		addCandidatePage.clickActionShortlist();
-		shortlistCandidatePage.clickShortlist();
+	public void offerJob() throws NoSuchElementException {
+		addCandidatePage.clickActionOfferJob();
+		offerJobPage.clickOfferJob();
 		assertTrue(this.viewActionHistoryPage.isSuccessMessagePresent());
 		viewActionHistoryPage.clickBack();
 	}

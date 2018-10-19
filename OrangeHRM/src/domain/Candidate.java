@@ -15,6 +15,11 @@ public class Candidate {
   	private String candidateShortlist = CandidateActions.SHORTLIST;
   	private String candidateScheduleInterview = CandidateActions.SCHEDULE_INTERVIEW;
   	private String candidateReject = CandidateActions.REJECT;
+  	private String candidateMarkInterviewPassed = CandidateActions.MARK_INTERVIEW_PASSED;
+  	private String candidateMarkInterviewFailed = CandidateActions.MARK_INTERVIEW_FAILED;
+  	private String candidateOfferJob = CandidateActions.OFFER_JOB;
+  	private String candidateDeclineOffer = CandidateActions.DECLINE_OFFER;
+  	private String candidateHire = CandidateActions.HIRE;
   	
 	public Candidate(String firstName, String middleName, String lastName, String email, String contactNumber, String resume, String keyWords, String notes) {
 		this.firstName = firstName;
@@ -162,6 +167,41 @@ public class Candidate {
 	 */
 	public String getCandidateReject() {
 		return candidateReject;
+	}
+
+	/**
+	 * @return the candidateMarkInterviewPassed
+	 */
+	public String getCandidateMarkInterviewPassed() {
+		return candidateMarkInterviewPassed;
+	}
+
+	/**
+	 * @return the candidateMarkInterviewFailed
+	 */
+	public String getCandidateMarkInterviewFailed() {
+		return candidateMarkInterviewFailed;
+	}
+
+	/**
+	 * @return the candidateOfferJob
+	 */
+	public String getCandidateOfferJob() {
+		return candidateOfferJob;
+	}
+
+	/**
+	 * @return the candidateDeclineOffer
+	 */
+	public String getCandidateDeclineOffer() {
+		return candidateDeclineOffer;
+	}
+
+	/**
+	 * @return the candidateHire
+	 */
+	public String getCandidateHire() {
+		return candidateHire;
 	}
   	
 }

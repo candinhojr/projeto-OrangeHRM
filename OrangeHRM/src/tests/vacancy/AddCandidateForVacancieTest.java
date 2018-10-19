@@ -13,6 +13,7 @@ import domain.Candidate;
 import pages.vacancy.*;
 import tests.BaseTest;
 import utils.Success;
+import utils.OthersTests;
 
 public class AddCandidateForVacancieTest extends BaseTest {
 
@@ -31,7 +32,7 @@ public class AddCandidateForVacancieTest extends BaseTest {
 	public void after() throws Exception {
 	}
 
-	@Category(Success.class)
+	@Category({Success.class})
 	@Test
 	public void successTest_AddCandidateForVacancieWithAllFieldsCompleted() throws InterruptedException {
 		this.jobVacanciesPage.goToJobVacanciePage();
@@ -43,6 +44,7 @@ public class AddCandidateForVacancieTest extends BaseTest {
 		
 	}
 
+	@Category({OthersTests.class})
 	@Test
 	public void validTest_ApplyForVacancieWithOnlyRequiredFieldsCompleted() throws InterruptedException {
 		this.jobVacanciesPage.goToJobVacanciePage();
@@ -54,6 +56,7 @@ public class AddCandidateForVacancieTest extends BaseTest {
 		assertTrue(this.jobVacanciesPage.applyOk());
 	}
 	
+	@Category({OthersTests.class})
 	@Test
 	public void invalidTest_EmplyRequiredFields() throws InterruptedException {
 		this.jobVacanciesPage.goToJobVacanciePage();
@@ -62,6 +65,7 @@ public class AddCandidateForVacancieTest extends BaseTest {
 		this.jobVacanciesPage.requiredFields();
 	}
 
+	@Category({OthersTests.class})
 	@Test
 	public void invalidTest_InvalidEmail() throws InterruptedException {
 		this.jobVacanciesPage.goToJobVacanciePage();
@@ -73,6 +77,7 @@ public class AddCandidateForVacancieTest extends BaseTest {
 		this.jobVacanciesPage.emailIncorrect();
 	}
 
+	@Category({OthersTests.class})
 	@Test
 	public void invalidTest_CorrompedDocument() throws InterruptedException {
 		this.jobVacanciesPage.goToJobVacanciePage();
@@ -84,6 +89,7 @@ public class AddCandidateForVacancieTest extends BaseTest {
 		assertTrue(this.jobVacanciesPage.isSuccessMessagePresent());
 	}
 	
+	@Category({OthersTests.class})
 	@Test
 	public void invalidTest_DocumentGreaterThan1M() throws InterruptedException {
 		this.jobVacanciesPage.goToJobVacanciePage();
@@ -95,6 +101,7 @@ public class AddCandidateForVacancieTest extends BaseTest {
 		assertTrue(this.jobVacanciesPage.isSuccessMessagePresent());
 	}
 	
+	@Category({OthersTests.class})
 	@Test
 	public void validTest_Document1M() throws InterruptedException {
 		this.jobVacanciesPage.goToJobVacanciePage();
@@ -106,6 +113,7 @@ public class AddCandidateForVacancieTest extends BaseTest {
 		assertTrue(this.jobVacanciesPage.isSuccessMessagePresent());
 	}
 	
+	@Category({OthersTests.class})
 	@Test
 	public void validTest_InvalidDocument() throws InterruptedException {
 		this.jobVacanciesPage.goToJobVacanciePage();
@@ -117,6 +125,7 @@ public class AddCandidateForVacancieTest extends BaseTest {
 		assertTrue(this.jobVacanciesPage.isSuccessMessagePresent());
 	}
 	
+	@Category({OthersTests.class})
 	@Test
 	public void invalidTest_NoActiveJobVacancies() throws NoSuchElementException {
 		assertTrue(this.jobVacanciesPage.checkForVacancies());

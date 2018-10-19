@@ -87,4 +87,19 @@ public class AddCandidatePage extends BasePage {
 		Candidate candidate = new Candidate();
 		this.selectAction(candidate.getCandidateScheduleInterview());
 	}
+	
+	public void clickActionMarkInterviewPassed() {
+		Candidate candidate = new Candidate();
+		this.selectAction(candidate.getCandidateMarkInterviewPassed());
+	}
+	
+	public void clickActionOfferJob() {
+		Candidate candidate = new Candidate();
+		this.selectAction(candidate.getCandidateOfferJob());
+	}
+	
+	public void clickActionHire() {
+		Candidate candidate = new Candidate();
+		this.selectAction(candidate.getCandidateHire());
+	}
 }
