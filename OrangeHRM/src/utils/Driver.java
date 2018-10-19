@@ -10,10 +10,12 @@ public class Driver {
   private WebDriver driver;
   private WebDriverWait wait;
 
-	  public String driverPath = "dependences/chromedriver";
-//	public String driverPath = "dependences/chromedriver.exe";
+  public String driverPath;
 
   private Driver() {
+
+    this.driverPath = System.getProperty("os.name").startsWith("Windows") ? "dependences/chromedriver.exe"
+        : "dependences/chromedriver";
 
     System.setProperty("webdriver.chrome.driver", driverPath);
 
@@ -23,7 +25,6 @@ public class Driver {
 
     this.driver.manage().window().maximize();
   }
-
 
   public static Driver getInstance() {
     return Driver.instance;
