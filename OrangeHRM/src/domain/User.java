@@ -1,18 +1,14 @@
 package domain;
 
-import java.util.Random;
-
 import constants.domain.user.*;
 
 public class User {
 
-  private final int NEXT_INT = new Random().nextInt(1000);
-
-  private String username = "user_test_" + NEXT_INT;
+  private String username = "teste_testiniano_123";
 
   private String password  = "password_test_123";
 
-  private String employeeName = "John Smith";
+  private String employeeName = "Teste Testiniano Testando";
 
   private String userStatus = UserStatus.ENABLED;
 

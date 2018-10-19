@@ -71,7 +71,7 @@ public class LoginTest extends BaseTest {
 	@Test
 	public void validTest_ValidUserNameValidPassword() throws InterruptedException {
 		// Métodos do page
-		this.loginPage.loginToOrangeHRM("Admin", "admin123");
+		this.loginPage.loginToOrangeHRM("teste_testiniano_123", "password_test_123");
 
 		// Asserts
 		Thread.sleep(500);
