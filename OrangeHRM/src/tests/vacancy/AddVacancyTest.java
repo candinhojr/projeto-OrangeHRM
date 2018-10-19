@@ -22,7 +22,7 @@ public class AddVacancyTest extends BaseTest {
 		this.home.logOut();
 	}
 	
-	@Category(Success.class)
+	@Category({Success.class})
 	@Test
 	public void CreateVacancyTest() throws InterruptedException {
 		// Instanciação dos pages

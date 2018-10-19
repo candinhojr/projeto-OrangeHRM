@@ -12,6 +12,7 @@ import domain.User;
 import pages.user.AddUserPage;
 import pages.user.ListUsersPage;
 import tests.BaseTest;
+import utils.OthersTests;
 import utils.Success;
 
 public class AddUsersTest extends BaseTest {
@@ -36,6 +37,7 @@ public class AddUsersTest extends BaseTest {
     this.home.logOut();
   }
 
+  @Category({OthersTests.class})
   @Test
   public void invalidTest_InvalidEmployeeName() {
     this.addUserPage.fillEmployeeName("adwad");
@@ -45,6 +47,7 @@ public class AddUsersTest extends BaseTest {
      assertTrue(this.addUserPage.verifyEmployeeInvalid());
   }
 
+  @Category({OthersTests.class})
   @Test
   public void invalidTest_InvalidUsername() {
     this.addUserPage.fillUsername("awd");
@@ -54,7 +57,7 @@ public class AddUsersTest extends BaseTest {
      assertTrue(this.addUserPage.verifyUsernameInvalid());
   }
 
-  @Category(Success.class)
+  @Category({Success.class})
   @Test
   public void successTest_addUser() {
     User user = new User();
