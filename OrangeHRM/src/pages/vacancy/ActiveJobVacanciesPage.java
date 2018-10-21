@@ -195,6 +195,6 @@ public class ActiveJobVacanciesPage extends BasePage {
 	    ExpectedConditions.visibilityOf(message);
 
 	    return this.message.getText().contains("Application Received");
-	  }
+	}
 	
 }

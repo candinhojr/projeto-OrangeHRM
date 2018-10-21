@@ -41,7 +41,6 @@ public class LoginTest extends BaseTest {
 		this.loginPage.loginToOrangeHRM("username", "11223344");
 
 		// Asserts
-		Thread.sleep(500);
 		this.loginPage.verifyLogin("Invalid credentials");
 	}
 
@@ -52,7 +51,6 @@ public class LoginTest extends BaseTest {
 		this.loginPage.loginToOrangeHRM("", "11223344");
 
 		// Asserts
-		Thread.sleep(500);
 		this.loginPage.verifyLogin("Username cannot be empty");
 	}
 
@@ -63,7 +61,6 @@ public class LoginTest extends BaseTest {
 		this.loginPage.loginToOrangeHRM("username", "");
 
 		// Asserts
-		Thread.sleep(500);
 		this.loginPage.verifyLogin("Password cannot be empty");
 	}
 
@@ -74,7 +71,6 @@ public class LoginTest extends BaseTest {
 		this.loginPage.loginToOrangeHRM("teste_testiniano_123", "password_test_123");
 
 		// Asserts
-		Thread.sleep(500);
 		assertTrue(loginPage.loginWithSucess());
 
 		this.home.logOut();

@@ -22,15 +22,15 @@ import utils.OthersTests;
 @ExcludeCategory(OthersTests.class)
 @IncludeCategory(Success.class)
 @SuiteClasses({
-  AddVacancyTest.class, // Add job vancancie
-  AddCandidateForVacancieTest.class, // Add candidate to job vancancie
-  ShortlistCandidateTest.class, // Accept subscription of candidate
+  AddVacancyTest.class, 				// Add job vancancie
+  AddCandidateForVacancieTest.class, 	// Add candidate to job vancancie
+  ShortlistCandidateTest.class, 		// Accept subscription of candidate
   ScheduleInterviewCandidateTest.class, // Schedule interview with candidate
-  MarkInterviewPassedTest.class, // Mark Interview Passed for candidate
-  OfferJobTest.class, // Offer Job to candidate
-  HireCandidateTest.class, // Hire candidate
-  AddUsersTest.class, // TODO: add the new candidate Teste Testiniano Testando
-  LoginTest.class // TODO: with new candidate
+  MarkInterviewPassedTest.class, 		// Mark Interview Passed for candidate
+  OfferJobTest.class, 					// Offer Job to candidate
+  HireCandidateTest.class, 				// Hire candidate
+  AddUsersTest.class, 					// Add the new employee
+  LoginTest.class 						// Login with new employee
 })
 public class FullTest {
 

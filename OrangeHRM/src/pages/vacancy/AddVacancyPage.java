@@ -1,5 +1,6 @@
 package pages.vacancy;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -7,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.BasePage;
 
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 public class AddVacancyPage extends BasePage {
@@ -23,8 +25,20 @@ public class AddVacancyPage extends BasePage {
 	@FindBy(name = "addJobVacancy[description]")
 	private WebElement description;
 
+	@FindBy(xpath = "//*[@id=\"frmAddJobVacancy\"]/fieldset/ol/li[1]/span")
+	private WebElement jobTitleRequiredXpath;
+	@FindBy(xpath = "//*[@id=\"frmAddJobVacancy\"]/fieldset/ol/li[2]/span")
+	private WebElement vacancyNameRequiredXpath;
+	@FindBy(xpath = "//*[@id=\"frmAddJobVacancy\"]/fieldset/ol/li[3]/span")
+	private WebElement hiringManagerRequiredXpath;
+	@FindBy(xpath = "//*[@id=\"frmAddJobVacancy\"]/fieldset/ol/li[3]/span")
+	private WebElement noOfPositionsMessageXpath;
+	@FindBy(xpath = "//*[@id=\"btnBack\"]")
+	private WebElement btnBack;
 	@FindBy(xpath = "//*[@id=\"btnSave\"]")
 	private WebElement btnSave;
+	@FindBy(css = ".message")
+	private WebElement message;
 
 	public AddVacancyPage() {
 		super();
@@ -57,7 +71,68 @@ public class AddVacancyPage extends BasePage {
 		writeText(this.description, description);
 	}
 
-	public void save() {
+	public void clickSave() {
 		click(this.btnSave);
 	}
+	
+	public void clickBack() {
+		click(this.btnBack);
+	}
+	
+	public void requiredFields() {
+		this.jobTitleRequired();
+		this.vacancyNameRequired();
+		this.hiringManagerRequired();
+	}
+	public void jobTitleRequired() {
+		String color = findElement(this.jobTitle).getCssValue("border-color").trim();
+		String color_hex[];  
+		color_hex = color.replace("rgb(", "").replace(")", "").split(",|,\\s");
+		String actual_hex = String.format("#%02x%02x%02x", Integer.parseInt(color_hex[0].trim()), Integer.parseInt(color_hex[1].trim()), Integer.parseInt(color_hex[2].trim()));  
+		Assert.assertEquals("actual_hex should equal to: ", "#aa4935", actual_hex);
+		readText(this.jobTitleRequiredXpath).equalsIgnoreCase("required");
+	}
+	
+	public void vacancyNameRequired() {
+		String color = findElement(this.name).getCssValue("border-color").trim();
+		String color_hex[];  
+		color_hex = color.replace("rgb(", "").replace(")", "").split(",|,\\s");
+		String actual_hex = String.format("#%02x%02x%02x", Integer.parseInt(color_hex[0].trim()), Integer.parseInt(color_hex[1].trim()), Integer.parseInt(color_hex[2].trim()));  
+		Assert.assertEquals("actual_hex should equal to: ", "#aa4935", actual_hex);
+		readText(this.vacancyNameRequiredXpath).equalsIgnoreCase("required");
+	}
+	
+	public void vacancyNameAlreadyExists() {
+		String color = findElement(this.name).getCssValue("border-color").trim();
+		String color_hex[];  
+		color_hex = color.replace("rgb(", "").replace(")", "").split(",|,\\s");
+		String actual_hex = String.format("#%02x%02x%02x", Integer.parseInt(color_hex[0].trim()), Integer.parseInt(color_hex[1].trim()), Integer.parseInt(color_hex[2].trim()));  
+		Assert.assertEquals("actual_hex should equal to: ", "#aa4935", actual_hex);
+		readText(this.vacancyNameRequiredXpath).equalsIgnoreCase("Already exists");
+	}
+	
+	public void hiringManagerRequired() {
+		String color = findElement(this.hiringManager).getCssValue("border-color").trim();
+		String color_hex[];  
+		color_hex = color.replace("rgb(", "").replace(")", "").split(",|,\\s");
+		String actual_hex = String.format("#%02x%02x%02x", Integer.parseInt(color_hex[0].trim()), Integer.parseInt(color_hex[1].trim()), Integer.parseInt(color_hex[2].trim()));  
+		Assert.assertEquals("actual_hex should equal to: ", "#aa4935", actual_hex);
+		readText(this.hiringManagerRequiredXpath).equalsIgnoreCase("invalid");
+	}
+	
+	public void noOfPositionsInvalid() {
+		String color = findElement(this.noOfPositions).getCssValue("border-color").trim();
+		String color_hex[];  
+		color_hex = color.replace("rgb(", "").replace(")", "").split(",|,\\s");
+		String actual_hex = String.format("#%02x%02x%02x", Integer.parseInt(color_hex[0].trim()), Integer.parseInt(color_hex[1].trim()), Integer.parseInt(color_hex[2].trim()));  
+		Assert.assertEquals("actual_hex should equal to: ", "#aa4935", actual_hex);
+		readText(this.noOfPositionsMessageXpath).equalsIgnoreCase("Should be a positive number");
+	}
+	
+	public boolean isSuccessMessagePresent() {
+	    ExpectedConditions.visibilityOf(message);
+
+	    return this.message.getText().contains("Successfully Saved");
+	}
+	
 }

@@ -25,7 +25,7 @@ public class AddCandidateForVacancieTest extends BaseTest {
 
 		this.jobVacanciesPage = PageFactory.initElements(driver, ActiveJobVacanciesPage.class);
 
-		this.home.goToActiveJobVacancies();
+		this.home.goToActiveJobVacancies().goToJobVacanciePage();
 	}
 
 	@After
@@ -35,7 +35,6 @@ public class AddCandidateForVacancieTest extends BaseTest {
 	@Category({Success.class})
 	@Test
 	public void successTest_AddCandidateForVacancieWithAllFieldsCompleted() throws InterruptedException {
-		this.jobVacanciesPage.goToJobVacanciePage();
 		this.jobVacanciesPage.createCandidate(new Candidate());
 		this.jobVacanciesPage.clickSubmit();
 
@@ -47,19 +46,18 @@ public class AddCandidateForVacancieTest extends BaseTest {
 	@Category({OthersTests.class})
 	@Test
 	public void validTest_ApplyForVacancieWithOnlyRequiredFieldsCompleted() throws InterruptedException {
-		this.jobVacanciesPage.goToJobVacanciePage();
 		this.jobVacanciesPage.fillFullName("Fevereiro", "", "Quaresma");
 		this.jobVacanciesPage.fillEmail("teste@teste.com");
 		this.jobVacanciesPage.addResume("dependences/files/pdf_valid.pdf");
 		this.jobVacanciesPage.clickSubmit();
 		
 		assertTrue(this.jobVacanciesPage.applyOk());
+		assertTrue(this.jobVacanciesPage.isSuccessMessagePresent());
 	}
 	
 	@Category({OthersTests.class})
 	@Test
 	public void invalidTest_EmplyRequiredFields() throws InterruptedException {
-		this.jobVacanciesPage.goToJobVacanciePage();
 		this.jobVacanciesPage.clickSubmit();
 
 		this.jobVacanciesPage.requiredFields();
@@ -68,7 +66,6 @@ public class AddCandidateForVacancieTest extends BaseTest {
 	@Category({OthersTests.class})
 	@Test
 	public void invalidTest_InvalidEmail() throws InterruptedException {
-		this.jobVacanciesPage.goToJobVacanciePage();
 		this.jobVacanciesPage.fillFullName("Candinho", "", "Junior");
 		this.jobVacanciesPage.fillEmail("teste");
 		this.jobVacanciesPage.addResume("dependences/files/pdf_valid.pdf");
@@ -80,7 +77,6 @@ public class AddCandidateForVacancieTest extends BaseTest {
 	@Category({OthersTests.class})
 	@Test
 	public void invalidTest_CorrompedDocument() throws InterruptedException {
-		this.jobVacanciesPage.goToJobVacanciePage();
 		this.jobVacanciesPage.fillFullName("Candinho", "", "Junior");
 		this.jobVacanciesPage.fillEmail("teste");
 		this.jobVacanciesPage.addResume("dependences/files/pdf_corrupted.pdf");
@@ -92,7 +88,6 @@ public class AddCandidateForVacancieTest extends BaseTest {
 	@Category({OthersTests.class})
 	@Test
 	public void invalidTest_DocumentGreaterThan1M() throws InterruptedException {
-		this.jobVacanciesPage.goToJobVacanciePage();
 		this.jobVacanciesPage.fillFullName("Candinho", "", "Junior");
 		this.jobVacanciesPage.fillEmail("teste");
 		this.jobVacanciesPage.addResume("dependences/files/pdf_2M.pdf");
@@ -104,7 +99,6 @@ public class AddCandidateForVacancieTest extends BaseTest {
 	@Category({OthersTests.class})
 	@Test
 	public void validTest_Document1M() throws InterruptedException {
-		this.jobVacanciesPage.goToJobVacanciePage();
 		this.jobVacanciesPage.fillFullName("Candinho", "", "Junior");
 		this.jobVacanciesPage.fillEmail("teste");
 		this.jobVacanciesPage.addResume("dependences/files/pdf_1M.pdf");
@@ -116,7 +110,6 @@ public class AddCandidateForVacancieTest extends BaseTest {
 	@Category({OthersTests.class})
 	@Test
 	public void validTest_InvalidDocument() throws InterruptedException {
-		this.jobVacanciesPage.goToJobVacanciePage();
 		this.jobVacanciesPage.fillFullName("Candinho", "", "Junior");
 		this.jobVacanciesPage.fillEmail("teste");
 		this.jobVacanciesPage.addResume("dependences/files/image.jpg");
@@ -131,5 +124,4 @@ public class AddCandidateForVacancieTest extends BaseTest {
 		assertTrue(this.jobVacanciesPage.checkForVacancies());
 	}
 
-	// TODO: Teste com outros arquivos e tamanhos diferentes
 }
