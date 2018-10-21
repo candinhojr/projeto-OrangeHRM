@@ -10,6 +10,17 @@ import pages.BasePage;
 
 public class ViewActionHistoryPage extends BasePage{
 
+	@FindBy(xpath = "//*[@id=\"frmCandidateVacancyStatus\"]/fieldset/ol/li[1]/label[2]")
+	private WebElement candidadeNameXpath;
+	@FindBy(xpath = "//*[@id=\"frmCandidateVacancyStatus\"]/fieldset/ol/li[2]/label[2]")
+	private WebElement vacancyXpath;
+	@FindBy(xpath = "//*[@id=\"frmCandidateVacancyStatus\"]/fieldset/ol/li[3]/label[2]")
+	private WebElement hiringManagerXpath;
+	@FindBy(xpath = "//*[@id=\"frmCandidateVacancyStatus\"]/fieldset/ol/li[3]/label[2]")
+	private WebElement currentStatusXpath;
+	@FindBy(xpath = "//*[@id=\"frmCandidateVacancyStatus\"]/fieldset/ol/li[3]/label[2]")
+	private WebElement performedActionXpath;
+	
 	@FindBy(id = "btnSave")
 	private WebElement editButtonId;
 	@FindBy(id = "cancelBtn")
@@ -32,11 +43,31 @@ public class ViewActionHistoryPage extends BasePage{
 	public void clickBack() {
 		click(this.backButtonId);
 	}
+	
+	public boolean checkCandidateName(String name) {
+		return readText(this.candidadeNameXpath).contains(name);
+	}
 
 	public boolean isSuccessMessagePresent() {
 		ExpectedConditions.visibilityOf(message);
 
     	return this.message.getText().contains("Successfully Updated");
+	}
+
+	public boolean checkCurrentStatus(String status) {
+		return readText(this.currentStatusXpath).contains(status);		
+	}
+
+	public boolean checkPerformedAction(String action) {
+		return readText(this.performedActionXpath).contains(action);		
+	}
+
+	public boolean checkVacancyName(String vacancyName) {
+		return readText(this.vacancyXpath).contains(vacancyName);
+	}
+
+	public boolean checkHiringManager(String hiringManager) {
+		return readText(this.hiringManagerXpath).contains(hiringManager);
 	}
 
 }

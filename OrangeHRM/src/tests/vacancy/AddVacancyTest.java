@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openqa.selenium.support.PageFactory;
 
+import domain.Vacancy;
 import pages.vacancy.*;
 import tests.BaseTest;
 import utils.OthersTests;
@@ -37,11 +38,7 @@ public class AddVacancyTest extends BaseTest {
 	@Category({Success.class})
 	@Test
 	public void successTest_CreateVacancyWithAllFieldsCompleted() throws InterruptedException {
-		this.addVacancyPage.selectJobTitle("IT Executive");
-		this.addVacancyPage.fillVacancyName("IT Executive Vacancy");
-		this.addVacancyPage.fillHiringManager("Thomas Fleming");
-		this.addVacancyPage.fillNoPositions("3");
-		this.addVacancyPage.fillDescription("Testando criar vaga");
+		this.addVacancyPage.createVacancy(new Vacancy());
 		this.addVacancyPage.clickSave();
 		
 		this.addVacancyPage.isSuccessMessagePresent();

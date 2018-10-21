@@ -102,4 +102,9 @@ public class AddCandidatePage extends BasePage {
 		Candidate candidate = new Candidate();
 		this.selectAction(candidate.getCandidateHire());
 	}
+	
+	public boolean checkStatusMessage(String status) {
+		return readText(this.statusMessage).contains("Status: "+status);
+	}
+
 }

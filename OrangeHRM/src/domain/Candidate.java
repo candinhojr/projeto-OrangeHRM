@@ -1,6 +1,7 @@
 package domain;
 
 import constants.domain.user.CandidateActions;
+import constants.domain.user.CandidateStatus;
 
 public class Candidate {
 
@@ -12,7 +13,9 @@ public class Candidate {
   	private String resume = "dependences/files/pdf_valid.pdf";
   	private String keyWords = "palavras chave";
   	private String notes = "Uso fruto de um teste";
+  	private String candidateInitiatedStatus = CandidateStatus.INITIALIZED;
   	private String candidateShortlist = CandidateActions.SHORTLIST;
+  	private String candidateShortlistedStatus = CandidateStatus.SHORTLISTED;
   	private String candidateScheduleInterview = CandidateActions.SCHEDULE_INTERVIEW;
   	private String candidateReject = CandidateActions.REJECT;
   	private String candidateMarkInterviewPassed = CandidateActions.MARK_INTERVIEW_PASSED;
@@ -202,6 +205,19 @@ public class Candidate {
 	 */
 	public String getCandidateHire() {
 		return candidateHire;
+	}
+
+	public String getCandidateFullName() {
+		String fullName = this.getFirstName().concat(" "+this.getMiddleName().concat(" "+this.getLastName()));
+		return fullName;
+	}
+
+	public String getCandidateShortlistedStatus() {
+		return candidateShortlistedStatus;
+	}
+	
+	public String getCandidateInitiatedStatus() {
+		return candidateInitiatedStatus;
 	}
   	
 }

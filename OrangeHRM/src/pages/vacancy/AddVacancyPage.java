@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import domain.Vacancy;
 import pages.BasePage;
 
 import org.openqa.selenium.support.FindBy;
@@ -64,7 +65,7 @@ public class AddVacancyPage extends BasePage {
 	}
 
 	public void fillNoPositions(String positions) {
-		writeText(this.noOfPositions, positions);
+		writeText(this.noOfPositions, positions );
 	}
 
 	public void fillDescription(String description) {
@@ -133,6 +134,15 @@ public class AddVacancyPage extends BasePage {
 	    ExpectedConditions.visibilityOf(message);
 
 	    return this.message.getText().contains("Successfully Saved");
+	}
+
+	public void createVacancy(Vacancy vacancy) {
+		this.selectJobTitle(vacancy.getJobTitle());
+		this.fillVacancyName(vacancy.getVacancyName());
+		this.fillHiringManager(vacancy.getHiringManager());
+		this.fillNoPositions(vacancy.getNumberOfPositions());
+		this.fillDescription(vacancy.getDescription());
+		
 	}
 	
 }

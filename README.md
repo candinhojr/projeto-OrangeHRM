@@ -27,6 +27,29 @@ O **fluxo de teste** implementado com base nas *funcionalidades do sistema* é o
 
 Foi criada uma suite de testes, que contém o caminho feliz do fluxo acima. Ela pode ser encontrada no arquivo [FullTest](https://github.com/candinhojr/projeto-OrangeHRM/blob/master/OrangeHRM/src/tests/FullTest.java). Para rodar a suite de testes, basta executar o arquivo com JUnit.
 
+## Casos de Teste
+Segue abaixo os casos de teste para cada uma das funcionalidades do sistema que estavam dentro do escopo deste projeto.
+- Cadastrar uma vaga de emprego:
+	> - Criar vaga com todos os campos preenchidos corretamente;
+	> - Criar vaga com apenas os campos obrigatórios preenchidos; 
+	> - Tentar cadastrar vaga sem preencher os campos obrigatórios;
+	> - Inserir um coordenador inválido;
+	> - Tentar cadastrar uma vaga com  o mesmo nome de outra vaga já publicada;
+	> - No campo referente ao Nº de vagas inserir texto;
+
+- Inscrever um candidado para a vaga:
+	> - Cadastrar um candidato com todos os campos preenchidos corretamente;
+	> - Cadastrar um candidato apenas com os campos obrigatórios preenchidos;
+	> - Tentar cadastrar um candidato sem preencher os campos obrigatórios;
+	> - Tentar cadastrar um candidato informando um e-mail inválido;
+	> - Tentar anexar um documento com mais de 1 mega de tamanho;
+	> - Tentar anexar um documento com exatamente 1 mega de tamanho;
+	> - Tentar anexar um documento com extensão não suportada;
+
+- Aceitar a inscrição do candidato:
+	> - Aceitar inscrição do candidato;
+	> - Rejeitar inscrição do candidato; 
+
 ### Asserts
 Dentre os testes(*Asserts*) feitos, estão:
 - Verificar os dados adicionados nos cadastros;
@@ -57,10 +80,13 @@ Após a execução dos testes foram encontrados os seguintes bugs:
 
 ### Informações Importantes
 
-Todo o código do trabalho se encontra no github, através do link [https://github.com/candinhojr/projeto-OrangeHRM/](https://github.com/candinhojr/projeto-OrangeHRM/)
+Todo o código do trabalho se encontra no github, através do link [https://github.com/candinhojr/projeto-OrangeHRM/](https://github.com/candinhojr/projeto-OrangeHRM/).
 
 A descrição do projeto, seu objetivo e metodologia estão descritos no arquivo [README](https://github.com/candinhojr/projeto-OrangeHRM/blob/master/README.md), que se encontra no diretório base do projeto.
 
-A apresentação do trabalho se encontra do diretório base do projeto, e se intitula "[Project-OrangeHRM-Presentation"](https://github.com/candinhojr/projeto-OrangeHRM/blob/master/Project-OrangeHRM-Presentation.pdf);
+A apresentação do trabalho se encontra do diretório base do projeto, e se intitula "[Project-OrangeHRM-Presentation"](https://github.com/candinhojr/projeto-OrangeHRM/blob/master/Project-OrangeHRM-Presentation.pdf).
 
+Para executar os testes do projeto é necessário fazer o download do projeto, descompactar e importar o projeto na IDE de desenvolvimento preferida e após isso executar os testes.
+ 
+Caso ocorra problema na execução do projeto, é necessário checar a versão do chromedriver, e caso seja necessário atualizar o mesmo, basta atualizar o arquivo "chromedriver" na pasta [dependences](https://github.com/candinhojr/projeto-OrangeHRM/tree/master/OrangeHRM/dependences) do projeto. 
 
