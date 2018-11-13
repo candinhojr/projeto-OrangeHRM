@@ -15,7 +15,7 @@ public class ShortlistCandidatePage extends BasePage {
 	private WebElement vacancyXpath;
 	@FindBy(xpath = "//*[@id=\"frmCandidateVacancyStatus\"]/fieldset/ol/li[3]/label[2]")
 	private WebElement hiringManagerXpath;
-	@FindBy(xpath = "//*[@id=\"frmCandidateVacancyStatus\"]/fieldset/ol/li[3]/label[2]")
+	@FindBy(xpath = "//*[@id=\"frmCandidateVacancyStatus\"]/fieldset/ol/li[4]/label[2]")
 	private WebElement currentStatusXpath;
 	@FindBy(id= "actionBtn")
 	private WebElement shortlistButtonId;

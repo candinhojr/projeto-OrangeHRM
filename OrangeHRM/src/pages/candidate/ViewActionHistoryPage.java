@@ -16,9 +16,9 @@ public class ViewActionHistoryPage extends BasePage{
 	private WebElement vacancyXpath;
 	@FindBy(xpath = "//*[@id=\"frmCandidateVacancyStatus\"]/fieldset/ol/li[3]/label[2]")
 	private WebElement hiringManagerXpath;
-	@FindBy(xpath = "//*[@id=\"frmCandidateVacancyStatus\"]/fieldset/ol/li[3]/label[2]")
+	@FindBy(xpath = "//*[@id=\"frmCandidateVacancyStatus\"]/fieldset/ol/li[4]/label[2]")
 	private WebElement currentStatusXpath;
-	@FindBy(xpath = "//*[@id=\"frmCandidateVacancyStatus\"]/fieldset/ol/li[3]/label[2]")
+	@FindBy(xpath = "//*[@id=\"frmCandidateVacancyStatus\"]/fieldset/ol/li[5]/label[2]")
 	private WebElement performedActionXpath;
 	
 	@FindBy(id = "btnSave")

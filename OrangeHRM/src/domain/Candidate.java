@@ -14,15 +14,27 @@ public class Candidate {
   	private String keyWords = "palavras chave";
   	private String notes = "Uso fruto de um teste";
   	private String candidateInitiatedStatus = CandidateStatus.INITIALIZED;
+  	
   	private String candidateShortlist = CandidateActions.SHORTLIST;
   	private String candidateShortlistedStatus = CandidateStatus.SHORTLISTED;
+  	
   	private String candidateScheduleInterview = CandidateActions.SCHEDULE_INTERVIEW;
+  	private String candidateInterviewScheduleStatus = CandidateStatus.INTERVIEW_SCHEDULED;
+  	
   	private String candidateReject = CandidateActions.REJECT;
+  	
   	private String candidateMarkInterviewPassed = CandidateActions.MARK_INTERVIEW_PASSED;
+  	private String candidateInterviewPassedStatus = CandidateStatus.INTERVIEW_PASSED;
+  	
   	private String candidateMarkInterviewFailed = CandidateActions.MARK_INTERVIEW_FAILED;
+  	
   	private String candidateOfferJob = CandidateActions.OFFER_JOB;
+  	private String candidateJobOfferedStatus = CandidateStatus.JOB_OFFERED;
+  	
   	private String candidateDeclineOffer = CandidateActions.DECLINE_OFFER;
+  	
   	private String candidateHire = CandidateActions.HIRE;
+  	private String candidateHiredStatus = CandidateStatus.HIRED;
   	
 	public Candidate(String firstName, String middleName, String lastName, String email, String contactNumber, String resume, String keyWords, String notes) {
 		this.firstName = firstName;
@@ -218,6 +230,34 @@ public class Candidate {
 	
 	public String getCandidateInitiatedStatus() {
 		return candidateInitiatedStatus;
+	}
+
+	/**
+	 * @return the candidateInterviewScheduleStatus
+	 */
+	public String getCandidateInterviewScheduleStatus() {
+		return candidateInterviewScheduleStatus;
+	}
+
+	/**
+	 * @return the candidateInterviewPassedStatus
+	 */
+	public String getCandidateInterviewPassedStatus() {
+		return candidateInterviewPassedStatus;
+	}
+
+	/**
+	 * @return the candidateJobOfferedStatus
+	 */
+	public String getCandidateJobOfferedStatus() {
+		return candidateJobOfferedStatus;
+	}
+
+	/**
+	 * @return the candidateHiredStatus
+	 */
+	public String getCandidateHiredStatus() {
+		return candidateHiredStatus;
 	}
   	
 }

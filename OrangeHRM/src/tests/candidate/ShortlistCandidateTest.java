@@ -52,7 +52,7 @@ public class ShortlistCandidateTest extends BaseTest {
 		assertTrue(this.shortlistCandidatePage.checkCandidateName(new Candidate().getCandidateFullName()));
 		assertTrue(this.shortlistCandidatePage.checkVacancyName(new Vacancy().getVacancyName()));
 		assertTrue(this.shortlistCandidatePage.checkHiringManager(new Vacancy().getHiringManager()));
-		assertTrue(this.shortlistCandidatePage.checkCurrentStatus(new Candidate().getCandidateShortlistedStatus()));
+		assertTrue(this.shortlistCandidatePage.checkCurrentStatus(new Candidate().getCandidateInitiatedStatus()));
 		
 		this.shortlistCandidatePage.clickShortlist();
 		
