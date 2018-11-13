@@ -50,12 +50,18 @@ Segue abaixo os casos de teste para cada uma das funcionalidades do sistema que 
 	> - Aceitar inscrição do candidato;
 	> - Rejeitar inscrição do candidato; 
 
+- Adicionar usuário:
+	> - Adicionar usuário com nome inválido
+	> - Adicionar usuário com username inválido;
+	> - Adicionar usuário com os dados corretos;
+
 ### Asserts
 Dentre os testes(*Asserts*) feitos, estão:
 - Verificar os dados adicionados nos cadastros;
 - Verificar se o histórico do candidato/funcionário bate com os dados adicionados em cada etapa do seu processo de seleção e contratação;
 - Verificar se o status do processo se altera em cada etapa;
 - Verificar se o candidato é adicionado na lista de empregados;
+- Verificar se o usuário foi criado com sucesso;
 - Ao logar verificar os dados, entre outros...
 
 ## Critérios de Teste Utilizados
@@ -68,6 +74,7 @@ Após a execução dos testes foram encontrados os seguintes bugs:
 -   É possível um funcionário ter mais de um cadastro de usuário;  
 -   É possível cadastrar o mesmo candidato para a mesma vaga;  
 -   Campos de inserção de documentos não aceita documentos com exatamente 1M nos formulários, quando não deveria aceitar documentos com mais de 1M;
+-   É possível a inserção de dois usuários distintos para um mesmo funcionário;
 
 ## Dificuldades
 -   Sem acesso a documentação do Sistema;  
