@@ -1,6 +1,6 @@
 # Projeto OrangeHRM
 ![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
-![GitHub top language](https://img.shields.io/github/languages/top/badges/shields.svg)
+
 O presente projeto foi desenvolvido utilizando a ferramenta *Selenium Web Driver* em conjunto com o *padrão Page Object*, para a disciplina de **Teste de Software II**, ofertada pela **Universidade Federal do Rio Grande do Norte** (*UFRN*) em parceria com o **Instituito Metropole Digital** (*IMD*) e ministrada pela professora **Roberta de Souza Coelho**.
 
 ## Descrição do Sistema
@@ -109,10 +109,14 @@ Caso ocorra problema na execução do projeto, é necessário checar a versão d
 </p>
 
 :link: <https://junit.org/junit5/>   
+
 :link: <https://www.seleniumhq.org/docs/03_webdriver.jsp>
+
 :link: <https://github.com/SeleniumHQ/selenium/wiki>
 
 ## Autores
 Candinho Luiz Dalla Brida Junior (<candinholuiz@gmail.com>)
+
 Pedro Paulo Paiva De Medeiros
+
 Victor Simplício Brandão de Lima
