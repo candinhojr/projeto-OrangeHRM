@@ -1,6 +1,9 @@
 package constants.domain.user;
 
 public class CandidateStatus {
+	
+	private CandidateStatus() {}
+	
 	public static final String INITIALIZED = "Application Initiated";
 	public static final String SHORTLISTED = "Shortlisted";
 	public static final String INTERVIEW_SCHEDULED = "Interview Scheduled";

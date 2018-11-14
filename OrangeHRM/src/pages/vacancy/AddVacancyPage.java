@@ -86,48 +86,48 @@ public class AddVacancyPage extends BasePage {
 		this.hiringManagerRequired();
 	}
 	public void jobTitleRequired() {
-		String color = findElement(this.jobTitle).getCssValue("border-color").trim();
-		String color_hex[];  
-		color_hex = color.replace("rgb(", "").replace(")", "").split(",|,\\s");
-		String actual_hex = String.format("#%02x%02x%02x", Integer.parseInt(color_hex[0].trim()), Integer.parseInt(color_hex[1].trim()), Integer.parseInt(color_hex[2].trim()));  
-		Assert.assertEquals("actual_hex should equal to: ", "#aa4935", actual_hex);
-		readText(this.jobTitleRequiredXpath).equalsIgnoreCase("required");
+		String color = findElement(this.jobTitle).getCssValue(utils.Constants.borderColor).trim();
+		String[] colorHex;  
+		colorHex = color.replace("rgb(", "").replace(")", "").split(utils.Constants.regexCommaOrCommaSpace);
+		String actualHex = String.format(utils.Constants.rgbFormat, Integer.parseInt(colorHex[0].trim()), Integer.parseInt(colorHex[1].trim()), Integer.parseInt(colorHex[2].trim()));  
+		Assert.assertEquals(utils.Constants.hexColorAA4935, actualHex);
+		Assert.assertTrue(readText(this.jobTitleRequiredXpath).equalsIgnoreCase(utils.Constants.required));
 	}
 	
 	public void vacancyNameRequired() {
-		String color = findElement(this.name).getCssValue("border-color").trim();
-		String color_hex[];  
-		color_hex = color.replace("rgb(", "").replace(")", "").split(",|,\\s");
-		String actual_hex = String.format("#%02x%02x%02x", Integer.parseInt(color_hex[0].trim()), Integer.parseInt(color_hex[1].trim()), Integer.parseInt(color_hex[2].trim()));  
-		Assert.assertEquals("actual_hex should equal to: ", "#aa4935", actual_hex);
-		readText(this.vacancyNameRequiredXpath).equalsIgnoreCase("required");
+		String color = findElement(this.name).getCssValue(utils.Constants.borderColor).trim();
+		String[] colorHex;  
+		colorHex = color.replace("rgb(", "").replace(")", "").split(utils.Constants.regexCommaOrCommaSpace);
+		String actualHex = String.format(utils.Constants.rgbFormat, Integer.parseInt(colorHex[0].trim()), Integer.parseInt(colorHex[1].trim()), Integer.parseInt(colorHex[2].trim()));  
+		Assert.assertEquals(utils.Constants.hexColorAA4935, actualHex);
+		Assert.assertTrue(readText(this.vacancyNameRequiredXpath).equalsIgnoreCase(utils.Constants.required));
 	}
 	
 	public void vacancyNameAlreadyExists() {
-		String color = findElement(this.name).getCssValue("border-color").trim();
-		String color_hex[];  
-		color_hex = color.replace("rgb(", "").replace(")", "").split(",|,\\s");
-		String actual_hex = String.format("#%02x%02x%02x", Integer.parseInt(color_hex[0].trim()), Integer.parseInt(color_hex[1].trim()), Integer.parseInt(color_hex[2].trim()));  
-		Assert.assertEquals("actual_hex should equal to: ", "#aa4935", actual_hex);
-		readText(this.vacancyNameRequiredXpath).equalsIgnoreCase("Already exists");
+		String color = findElement(this.name).getCssValue(utils.Constants.borderColor).trim();
+		String[] colorHex;  
+		colorHex = color.replace("rgb(", "").replace(")", "").split(utils.Constants.regexCommaOrCommaSpace);
+		String actualHex = String.format(utils.Constants.rgbFormat, Integer.parseInt(colorHex[0].trim()), Integer.parseInt(colorHex[1].trim()), Integer.parseInt(colorHex[2].trim()));  
+		Assert.assertEquals(utils.Constants.hexColorAA4935, actualHex);
+		Assert.assertTrue(readText(this.vacancyNameRequiredXpath).equalsIgnoreCase("Already exists"));
 	}
 	
 	public void hiringManagerRequired() {
-		String color = findElement(this.hiringManager).getCssValue("border-color").trim();
-		String color_hex[];  
-		color_hex = color.replace("rgb(", "").replace(")", "").split(",|,\\s");
-		String actual_hex = String.format("#%02x%02x%02x", Integer.parseInt(color_hex[0].trim()), Integer.parseInt(color_hex[1].trim()), Integer.parseInt(color_hex[2].trim()));  
-		Assert.assertEquals("actual_hex should equal to: ", "#aa4935", actual_hex);
-		readText(this.hiringManagerRequiredXpath).equalsIgnoreCase("invalid");
+		String color = findElement(this.hiringManager).getCssValue(utils.Constants.borderColor).trim();
+		String[] colorHex;  
+		colorHex = color.replace("rgb(", "").replace(")", "").split(utils.Constants.regexCommaOrCommaSpace);
+		String actualHex = String.format(utils.Constants.rgbFormat, Integer.parseInt(colorHex[0].trim()), Integer.parseInt(colorHex[1].trim()), Integer.parseInt(colorHex[2].trim()));  
+		Assert.assertEquals(utils.Constants.hexColorAA4935, actualHex);
+		Assert.assertTrue(readText(this.hiringManagerRequiredXpath).equalsIgnoreCase(utils.Constants.required));
 	}
 	
 	public void noOfPositionsInvalid() {
-		String color = findElement(this.noOfPositions).getCssValue("border-color").trim();
-		String color_hex[];  
-		color_hex = color.replace("rgb(", "").replace(")", "").split(",|,\\s");
-		String actual_hex = String.format("#%02x%02x%02x", Integer.parseInt(color_hex[0].trim()), Integer.parseInt(color_hex[1].trim()), Integer.parseInt(color_hex[2].trim()));  
-		Assert.assertEquals("actual_hex should equal to: ", "#aa4935", actual_hex);
-		readText(this.noOfPositionsMessageXpath).equalsIgnoreCase("Should be a positive number");
+		String color = findElement(this.noOfPositions).getCssValue(utils.Constants.borderColor).trim();
+		String[] colorHex;  
+		colorHex = color.replace("rgb(", "").replace(")", "").split(utils.Constants.regexCommaOrCommaSpace);
+		String actualHex = String.format(utils.Constants.rgbFormat, Integer.parseInt(colorHex[0].trim()), Integer.parseInt(colorHex[1].trim()), Integer.parseInt(colorHex[2].trim()));  
+		Assert.assertEquals(utils.Constants.hexColorAA4935, actualHex);
+		Assert.assertTrue(readText(this.noOfPositionsMessageXpath).equalsIgnoreCase("Should be a positive number"));
 	}
 	
 	public boolean isSuccessMessagePresent() {

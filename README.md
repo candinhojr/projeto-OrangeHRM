@@ -1,4 +1,6 @@
 # Projeto OrangeHRM
+![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
+![GitHub top language](https://img.shields.io/github/languages/top/badges/shields.svg)
 O presente projeto foi desenvolvido utilizando a ferramenta *Selenium Web Driver* em conjunto com o *padrão Page Object*, para a disciplina de **Teste de Software II**, ofertada pela **Universidade Federal do Rio Grande do Norte** (*UFRN*) em parceria com o **Instituito Metropole Digital** (*IMD*) e ministrada pela professora **Roberta de Souza Coelho**.
 
 ## Descrição do Sistema
@@ -85,7 +87,7 @@ Após a execução dos testes foram encontrados os seguintes bugs:
 		-   e.g. Cadastros de usuários apagados (incluindo os empregados default)  
 -   Listas e Alertas;
 
-### Informações Importantes
+## Informações Importantes
 
 Todo o código do trabalho se encontra no github, através do link [https://github.com/candinhojr/projeto-OrangeHRM/](https://github.com/candinhojr/projeto-OrangeHRM/).
 
@@ -97,3 +99,20 @@ Para executar os testes do projeto é necessário fazer o download do projeto, d
  
 Caso ocorra problema na execução do projeto, é necessário checar a versão do chromedriver, e caso seja necessário atualizar o mesmo, basta atualizar o arquivo "chromedriver" na pasta [dependences](https://github.com/candinhojr/projeto-OrangeHRM/tree/master/OrangeHRM/dependences) do projeto. 
 
+## Referências
+<p align="left">
+<img src="https://cdn-images-1.medium.com/max/982/1*AiTBjfsoj3emarTpaeNgKQ.png" width="14%"  />
+</p>
+
+<p align="left">
+<img src="https://www.seleniumhq.org/images/big-logo.png" width="14%" />
+</p>
+
+:link: <https://junit.org/junit5/>   
+:link: <https://www.seleniumhq.org/docs/03_webdriver.jsp>
+:link: <https://github.com/SeleniumHQ/selenium/wiki>
+
+## Autores
+Candinho Luiz Dalla Brida Junior (<candinholuiz@gmail.com>)
+Pedro Paulo Paiva De Medeiros
+Victor Simplício Brandão de Lima

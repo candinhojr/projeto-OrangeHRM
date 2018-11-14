@@ -18,16 +18,15 @@ public class ActiveCandidatesPage extends BasePage {
 		super(driver, wait);
 	}
 	
-	// Elementos Web
-	// Pagina com todos os candidatos
+	// Elements Web
+	// Page with all candidates
 	@FindBy(linkText="Teste Testiniano Testando")
 	WebElement candidate;
 	
 	@FindBy(xpath = "//*[@id=\"btnAdd\"]")
 	WebElement addCandidateButtonXpath;
-	
-	
-	// Pagina de uma vaga em especifico
+	 
+	// Page of the specific job
 	@FindBy(id = "addCandidateHeading")
 	WebElement vacancieTitleId;
 	@FindBy(id = "addCandidate_firstName")
@@ -51,7 +50,7 @@ public class ActiveCandidatesPage extends BasePage {
 	@FindBy(id = "backLink")
 	WebElement backToListId;
 
-	// Métodos do Page
+	// Methods of Page
 	public AddCandidatePage goToAddCandidatePage() {
 		click(addCandidateButtonXpath);
 
@@ -63,16 +62,5 @@ public class ActiveCandidatesPage extends BasePage {
 		
 		return PageFactory.initElements(driver, AddCandidatePage.class);
 	}
-	/*public void firstNameRequired() {
-		String color = findElement(By.id(firstNameInputId)).getCssValue("border-color").trim();
-		System.out.println("RGB Color of header: " + color);
-		String color_hex[];  
-		color_hex = color.replace("rgb(", "").replace(")", "").split(",|,\\s");
-		String actual_hex = String.format("#%02x%02x%02x", Integer.parseInt(color_hex[0].trim()), Integer.parseInt(color_hex[1].trim()), Integer.parseInt(color_hex[2].trim()));  
-		System.out.println("HEX Color of header: " + actual_hex);
-		Assert.assertEquals("actual_hex should equal to: ", "#aa4935", actual_hex);
-		Assert.assertEquals("Required", findElement(By.xpath(firstNameRequiredXpath)).getText()); //findElement(By.xpath(firstNameRequiredXpath)).getText().contains("Required");
-	
-	}*/
 	
 }

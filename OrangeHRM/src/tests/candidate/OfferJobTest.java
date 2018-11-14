@@ -37,8 +37,6 @@ public class OfferJobTest extends BaseTest{
 
 	@After
 	public void tearDown() throws Exception {
-		super.tearDown();
-
 		this.home.logOut();
 	}
 

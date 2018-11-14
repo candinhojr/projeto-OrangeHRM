@@ -14,6 +14,7 @@ import domain.Candidate;
 import domain.Vacancy;
 import pages.candidate.*;
 import tests.BaseTest;
+import utils.OthersTests;
 import utils.Success;
 
 public class ShortlistCandidateTest extends BaseTest {
@@ -37,43 +38,99 @@ public class ShortlistCandidateTest extends BaseTest {
 
 	@After
 	public void tearDown() throws Exception {
-		super.tearDown();
-
+		this.viewActionHistoryPage.clickBack();
 		this.home.logOut();
 	}
 	
+	/**
+	 * Shortlist the candidate, and check the candidate's data
+	 * @throws NoSuchElementException
+	 */
 	@Category({Success.class})
 	@Test
 	public void shortlistCandidate() throws NoSuchElementException {	
-		assertTrue(this.addCandidatePage.checkStatusMessage(new Candidate().getCandidateInitiatedStatus()));
+		/**
+		 * Check initial status message
+		 */
+		this.checkInitiatedStatusMessage();
 		
+		/**
+		 * Select the 'shortlist' action in the candidate's actions, and check the candidate's and vacancy data
+		 */
+		this.actionShortlistCandidate();
+		
+		/**
+		 * Confirm the 'shortlist' action in the candidate's actions, and check the candidate's and vacancy data
+		 */
+		this.confirmTheShortlistAction();
+	}
+	
+	/**
+	 * Check initial status message
+	 * @throws NoSuchElementException
+	 */
+	@Category({OthersTests.class})
+	@Test
+	public void checkInitiatedStatusMessage() throws NoSuchElementException {
+		/**
+		 * Check initial status message
+		 */
+		assertTrue(this.addCandidatePage.checkStatusMessage(new Candidate().getCandidateInitiatedStatus()));
+	}
+	
+	/**
+	 * Select the 'shortlist' action in the candidate's actions, and check the candidate's and vacancy data
+	 * @throws NoSuchElementException
+	 */
+	@Category({OthersTests.class})
+	@Test
+	public void actionShortlistCandidate() throws NoSuchElementException {
 		this.addCandidatePage.clickActionShortlist();
 		
+		/**
+		 * Check the candidate's and vacancy data:
+		 * Candidate Name, Vacancy Name, HiringManager
+		 */
 		assertTrue(this.shortlistCandidatePage.checkCandidateName(new Candidate().getCandidateFullName()));
 		assertTrue(this.shortlistCandidatePage.checkVacancyName(new Vacancy().getVacancyName()));
 		assertTrue(this.shortlistCandidatePage.checkHiringManager(new Vacancy().getHiringManager()));
+		/**
+		 * Check the current status of process
+		 */
 		assertTrue(this.shortlistCandidatePage.checkCurrentStatus(new Candidate().getCandidateInitiatedStatus()));
-		
+	}
+	
+	/**
+	 * Confirm the 'shortlist' action in the candidate's actions, and check the candidate's and vacancy data
+	 * @throws NoSuchElementException
+	 */
+	@Test
+	public void confirmTheShortlistAction() throws NoSuchElementException {
+		/**
+		 * Confirm the action of 'shortlist' candidate, and check the candidate's and vacancy data
+		 */
 		this.shortlistCandidatePage.clickShortlist();
-		
+		/**
+		 * Checks whether the success message is displayed
+		 */
 		assertTrue(this.viewActionHistoryPage.isSuccessMessagePresent());
+		/**
+		 * Check the candidate's and vacancy data:
+		 * Candidate Name, Vacancy Name, HiringManager
+		 */
 		assertTrue(this.viewActionHistoryPage.checkCandidateName(new Candidate().getCandidateFullName()));
 		assertTrue(this.viewActionHistoryPage.checkVacancyName(new Vacancy().getVacancyName()));
 		assertTrue(this.viewActionHistoryPage.checkHiringManager(new Vacancy().getHiringManager()));
+		/**
+		 * Check the current status of process
+		 */
 		assertTrue(this.viewActionHistoryPage.checkCurrentStatus(new Candidate().getCandidateShortlistedStatus()));
+		/**
+		 * Check the performed action of process
+		 */
 		assertTrue(this.viewActionHistoryPage.checkPerformedAction(new Candidate().getCandidateShortlist()));
-		
-		this.viewActionHistoryPage.clickBack();
 	}
 	
-	// TODO: Dividir testes
-	// TODO: Checar dados da inscrição do candidato para a vaga;
 	// TODO: Rejeitar inscrição do candidato; 
-	
-//	@Category({OthersTests.class})
-//	@Test
-//	public void verifyCandidateName() {
-//		viewActionHistoryPage.checkCandidateName(new Candidate().getCandidateFullName());
-//	}
 
 }

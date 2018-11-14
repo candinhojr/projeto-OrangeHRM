@@ -1,7 +1,5 @@
 package pages.candidate;
 
-import java.util.NoSuchElementException;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -69,12 +67,12 @@ public class AddCandidatePage extends BasePage {
 		writeText(this.contactNo, contactNo);
 	}
 
-	public void selectJobVacancy(String vacancy) throws NoSuchElementException {
+	public void selectJobVacancy(String vacancy) {
 		Select vacancyList = new Select(this.vacancy);
 		vacancyList.selectByVisibleText(vacancy);
 	}
 	
-	public void selectAction(String action) throws NoSuchElementException {
+	public void selectAction(String action) {
 		selectElement(this.selectAction).selectByVisibleText(action);
 	}
 	

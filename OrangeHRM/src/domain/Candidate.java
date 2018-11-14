@@ -3,6 +3,10 @@ package domain;
 import constants.domain.user.CandidateActions;
 import constants.domain.user.CandidateStatus;
 
+/**
+ * @author candinho
+ *
+ */
 public class Candidate {
 
 	private String firstName = "Teste";
@@ -220,14 +224,18 @@ public class Candidate {
 	}
 
 	public String getCandidateFullName() {
-		String fullName = this.getFirstName().concat(" "+this.getMiddleName().concat(" "+this.getLastName()));
-		return fullName;
+		return this.getFirstName().concat(" "+this.getMiddleName().concat(" "+this.getLastName()));
 	}
 
+	
 	public String getCandidateShortlistedStatus() {
 		return candidateShortlistedStatus;
 	}
 	
+	/**
+	 * 
+	 * @return the candidateInitiatedStatus
+	 */
 	public String getCandidateInitiatedStatus() {
 		return candidateInitiatedStatus;
 	}

@@ -22,7 +22,7 @@ public class ActiveJobVacanciesPage extends BasePage {
 		super(driver, wait);
 	}
 	
-	// Elementos Web
+	// Elements Web
 	// Pagina com todas as vagas em aberto
 	@FindBy(xpath = "//*[@id=\"jobPage\"]/div/div/div[1]/h1/font/font")
 	private WebElement titleActiveJobVacanciesXpath;
@@ -74,7 +74,7 @@ public class ActiveJobVacanciesPage extends BasePage {
 	@FindBy(css = ".message")
 	private WebElement message;
 
-	// Métodos do Page
+	// Methods of Page
 	public void goToJobVacanciePage() {
 		click(this.applyButtonXpath);
 	}
@@ -139,56 +139,52 @@ public class ActiveJobVacanciesPage extends BasePage {
 	}
 	
 	public boolean applyOk() {
-		return readText(this.resumeUploaded).equalsIgnoreCase("Uploaded");
+		return readText(this.resumeUploaded).equalsIgnoreCase(utils.Constants.uploaded);
 	}
 
 	public void firstNameRequired() {
-		String color = findElement(this.firstNameInputId).getCssValue("border-color").trim();
-//		System.out.println("RGB Color of header: " + color);
-		String color_hex[];  
-		color_hex = color.replace("rgb(", "").replace(")", "").split(",|,\\s");
-		String actual_hex = String.format("#%02x%02x%02x", Integer.parseInt(color_hex[0].trim()), Integer.parseInt(color_hex[1].trim()), Integer.parseInt(color_hex[2].trim()));  
-//		System.out.println("HEX Color of header: " + actual_hex);
-		Assert.assertEquals("actual_hex should equal to: ", "#aa4935", actual_hex);
-		readText(this.firstNameRequiredXpath).equalsIgnoreCase("required");
-//		Assert.assertEquals("Required", findElement(firstNameRequiredXpath).getText()); 
-//		return "#aa4935".equals(actual_hex) && "Required".equals(readText(firstNameRequiredXpath));
+		String color = findElement(this.firstNameInputId).getCssValue(utils.Constants.borderColor).trim();
+		String[] colorHex;  
+		colorHex = color.replace("rgb(", "").replace(")", "").split(utils.Constants.regexCommaOrCommaSpace);
+		String actualHex = String.format(utils.Constants.rgbFormat, Integer.parseInt(colorHex[0].trim()), Integer.parseInt(colorHex[1].trim()), Integer.parseInt(colorHex[2].trim()));  
+		Assert.assertEquals(utils.Constants.hexColorAA4935, actualHex);
+		Assert.assertTrue(readText(this.firstNameRequiredXpath).equalsIgnoreCase(utils.Constants.required));
 	}
 	
 	public void lastNameRequired() {
-		String color = findElement(this.lastNameInputId).getCssValue("border-color").trim();
-		String color_hex[];  
-		color_hex = color.replace("rgb(", "").replace(")", "").split(",|,\\s");
-		String actual_hex = String.format("#%02x%02x%02x", Integer.parseInt(color_hex[0].trim()), Integer.parseInt(color_hex[1].trim()), Integer.parseInt(color_hex[2].trim()));  
-		Assert.assertEquals("actual_hex should equal to: ", "#aa4935", actual_hex);
-		readText(this.lastNameRequiredXpath).equalsIgnoreCase("required");
+		String color = findElement(this.lastNameInputId).getCssValue(utils.Constants.borderColor).trim();
+		String[] colorHex;  
+		colorHex = color.replace("rgb(", "").replace(")", "").split(utils.Constants.regexCommaOrCommaSpace);
+		String actualHex = String.format(utils.Constants.rgbFormat, Integer.parseInt(colorHex[0].trim()), Integer.parseInt(colorHex[1].trim()), Integer.parseInt(colorHex[2].trim()));  
+		Assert.assertEquals(utils.Constants.hexColorAA4935, actualHex);
+		Assert.assertTrue(readText(this.lastNameRequiredXpath).equalsIgnoreCase(utils.Constants.required));
 	}
 	
 	public void emailRequired() {
-		String color = findElement(emailInputId).getCssValue("border-color").trim();
-		String color_hex[];  
-		color_hex = color.replace("rgb(", "").replace(")", "").split(",|,\\s");
-		String actual_hex = String.format("#%02x%02x%02x", Integer.parseInt(color_hex[0].trim()), Integer.parseInt(color_hex[1].trim()), Integer.parseInt(color_hex[2].trim()));  
-		Assert.assertEquals("actual_hex should equal to: ", "#aa4935", actual_hex);
-		readText(this.emailRequiredXpath).equalsIgnoreCase("required");
+		String color = findElement(emailInputId).getCssValue(utils.Constants.borderColor).trim();
+		String[] colorHex;  
+		colorHex = color.replace("rgb(", "").replace(")", "").split(utils.Constants.regexCommaOrCommaSpace);
+		String actualHex = String.format(utils.Constants.rgbFormat, Integer.parseInt(colorHex[0].trim()), Integer.parseInt(colorHex[1].trim()), Integer.parseInt(colorHex[2].trim()));  
+		Assert.assertEquals(utils.Constants.hexColorAA4935, actualHex);
+		Assert.assertTrue(readText(this.emailRequiredXpath).equalsIgnoreCase(utils.Constants.required));
 	}
 	
 	public void resumeRequired() {
-		String color = findElement(resumeInputFileId).getCssValue("border-color").trim();
-		String color_hex[];  
-		color_hex = color.replace("rgb(", "").replace(")", "").split(",|,\\s");
-		String actual_hex = String.format("#%02x%02x%02x", Integer.parseInt(color_hex[0].trim()), Integer.parseInt(color_hex[1].trim()), Integer.parseInt(color_hex[2].trim()));  
-		Assert.assertEquals("actual_hex should equal to: ", "#aa4935", actual_hex);
-		readText(this.resumeRequiredXpath).equalsIgnoreCase("required");		
+		String color = findElement(resumeInputFileId).getCssValue(utils.Constants.borderColor).trim();
+		String[] colorHex;  
+		colorHex = color.replace("rgb(", "").replace(")", "").split(utils.Constants.regexCommaOrCommaSpace);
+		String actualHex = String.format(utils.Constants.rgbFormat, Integer.parseInt(colorHex[0].trim()), Integer.parseInt(colorHex[1].trim()), Integer.parseInt(colorHex[2].trim()));  
+		Assert.assertEquals(utils.Constants.hexColorAA4935, actualHex);
+		Assert.assertTrue(readText(this.resumeRequiredXpath).equalsIgnoreCase(utils.Constants.required));		
 	}
 	
 	public void emailIncorrect() {
-		String color = findElement(this.emailInputId).getCssValue("border-color").trim();
-		String color_hex[];  
-		color_hex = color.replace("rgb(", "").replace(")", "").split(",|,\\s");
-		String actual_hex = String.format("#%02x%02x%02x", Integer.parseInt(color_hex[0].trim()), Integer.parseInt(color_hex[1].trim()), Integer.parseInt(color_hex[2].trim()));  
-		Assert.assertEquals("actual_hex should equal to: ", "#aa4935", actual_hex);
-		readText(this.emailRequiredXpath).equalsIgnoreCase("Expected format: admin@example.com");
+		String color = findElement(this.emailInputId).getCssValue(utils.Constants.borderColor).trim();
+		String[] colorHex;  
+		colorHex = color.replace("rgb(", "").replace(")", "").split(utils.Constants.regexCommaOrCommaSpace);
+		String actualHex = String.format(utils.Constants.rgbFormat, Integer.parseInt(colorHex[0].trim()), Integer.parseInt(colorHex[1].trim()), Integer.parseInt(colorHex[2].trim()));  
+		Assert.assertEquals(utils.Constants.hexColorAA4935, actualHex);
+		Assert.assertTrue(readText(this.emailRequiredXpath).equalsIgnoreCase(utils.Constants.required));
 	}
 	
 	public boolean isSuccessMessagePresent() {

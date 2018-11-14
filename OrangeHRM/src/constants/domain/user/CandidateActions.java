@@ -1,6 +1,9 @@
 package constants.domain.user;
 
 public class CandidateActions {
+	
+	private CandidateActions() {}
+	
 	public static final String SHORTLIST = "Shortlist";
 	public static final String REJECT = "Reject";
 	public static final String SCHEDULE_INTERVIEW = "Schedule Interview";

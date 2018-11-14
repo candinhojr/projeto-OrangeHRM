@@ -37,8 +37,6 @@ public class HireCandidateTest extends BaseTest{
 
 	@After
 	public void tearDown() throws Exception {
-		super.tearDown();
-
 		this.home.logOut();
 	}
 

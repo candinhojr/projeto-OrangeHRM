@@ -32,8 +32,6 @@ public class ScheduleInterviewCandidateTest extends BaseTest {
 
 	@After
 	public void tearDown() throws Exception {
-		super.tearDown();
-
 		this.home.logOut();
 	}
 	
@@ -42,7 +40,7 @@ public class ScheduleInterviewCandidateTest extends BaseTest {
 	public void shortlistCandidate() throws NoSuchElementException {	
 		addCandidatePage.clickActionScheduleInterview();
 		scheduleInterviewCandidatePage.fillInterviewTitle("Entrevista");
-		scheduleInterviewCandidatePage.fillInterviewerName("Linda Anderson");
+		scheduleInterviewCandidatePage.fillInterviewerName("John Smith");
 		scheduleInterviewCandidatePage.fillInterviewDate("2018-10-31");
 		scheduleInterviewCandidatePage.clickSave();
 		assertTrue(this.scheduleInterviewCandidatePage.isSuccessMessagePresent());

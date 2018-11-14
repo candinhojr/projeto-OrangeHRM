@@ -15,10 +15,10 @@ import utils.Driver;
 
 public class BasePage {
 
-    public WebDriver driver;
-    public WebDriverWait wait;
+    protected WebDriver driver;
+    protected WebDriverWait wait;
 
-    private final String BASE_PAGE_URL = "https://opensource-demo.orangehrmlive.com/";
+    private String basePageUrl = "https://opensource-demo.orangehrmlive.com/";
 
     public BasePage() {
         this.driver = Driver.getInstance().getWebDriver();
@@ -40,7 +40,6 @@ public class BasePage {
     // Método writeText
     public void writeText(WebElement elementLocation, String text) {
         this.waitTime(1000);
-        // driver.findElement(elementLocation).sendKeys(text);
         elementLocation.sendKeys(text);
     }
 
@@ -63,7 +62,7 @@ public class BasePage {
     }
 
     public LoginPage goToLoginPage() {
-        driver.get(this.BASE_PAGE_URL);
+        driver.get(this.basePageUrl);
 
         return PageFactory.initElements(driver, LoginPage.class);
     }

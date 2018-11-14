@@ -1,6 +1,5 @@
 package tests;
 
-import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -29,10 +28,4 @@ public class BaseTest {
 		this.wait = Driver.getInstance().getWebDriverWait();
 	}
 
-	// Verificar o uso do AfterClass
-	@After
-	public void tearDown() throws Exception {
-		// TODO: should logoff if logged in
-		// driver.quit();
-	}
 }
